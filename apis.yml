@@ -1,7 +1,11 @@
 aid: ge-vernova
-url: https://raw.githubusercontent.com/api-evangelist/ge-vernova/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/ge-vernova/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.ge-vernova.com
+description: >-
+  GE Vernova is accelerating the path to more reliable, affordable, and sustainable
+  energy through our innovative portfolio of electrification and decarbonization technologies.
