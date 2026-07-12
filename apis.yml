@@ -26,6 +26,10 @@ tags:
   - Sustainability
 apis: []
 common:
+  - type: VulnerabilityDisclosure
+    url: security/ge-vernova-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/ge-vernova-domain-security.yml
   - type: Website
     url: https://www.gevernova.com/
   - type: AboutUs
