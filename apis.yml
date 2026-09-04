@@ -32,7 +32,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
 access: 3rd-Party
-position: Consumer
+position: Consuming
 created: '2026-03-21'
 modified: '2026-04-28'
 url: >-
