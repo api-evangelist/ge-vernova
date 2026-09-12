@@ -1,0 +1,103 @@
+generated: '2026-09-12'
+method: derived
+status: candidate
+source: >-
+  https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html
+note: >-
+  GE Vernova publishes no MCP server. No hosted endpoint, no stdio package, no mention of MCP in any
+  product documentation, and nothing on npm or PyPI under gevernova/proficy. The tool list below is
+  a CANDIDATE derived from operations GE Vernova documents by name, URI and HTTP method in its own
+  product documentation — there is no OpenAPI to derive from, so each tool cites the documentation
+  page that defines it. Nothing here is offered by the provider; no endpoint has been invented.
+  A real server would have to be tenant-scoped: every one of these APIs runs on the customer's own
+  installed instance, so an MCP server for this portfolio is configured per installation, not
+  published once by the vendor.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: oauth
+  verified: searched
+server:
+  name: ge-vernova-proficy
+  transport: null
+  url: null
+tools:
+  - name: list_data_stores
+    description: List the data stores in a Historian system.
+    method: GET
+    uri_template: https://{historian-web-client-host}/historian-rest-api/v1/datastores?dataStoreMask={mask}
+    source_doc: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_data_stores_apis.html
+    confidence: high
+  - name: start_collector
+    description: Start a Historian collector instance.
+    method: PUT
+    uri_template: https://{historian-web-client-host}/historian-rest-api/v1/collector/start
+    source_doc: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collectors_apis.html
+    confidence: high
+  - name: create_object_type
+    description: Create an object type in the Historian model.
+    method: POST
+    uri_template: https://{historian-web-client-host}/historian-model/v2/objectTypes
+    source_doc: https://www.gevernova.com/software/documentation/historian/version2025/r_historian_model_rest_apis.html
+    confidence: high
+  - name: query_tag_samples
+    description: >-
+      Read samples for one or more tags over a time range, with a sampling mode, calculation mode,
+      direction and filter mode.
+    method: GET
+    uri_template: https://{historian-web-client-host}/historian-rest-api/v1/...
+    parameters: [tagNames, start, end, SamplingModeType, Direction, CalculationModeType, FilterModeType, ReturnDataFields]
+    source_doc: https://www.gevernova.com/software/documentation/historian/version2025/c_general_api_overview.html
+    confidence: medium
+    note: >-
+      The parameter set is published verbatim; the exact path is not stated on the overview page and
+      was deliberately not guessed.
+  - name: manage_tags
+    description: Create, modify and remove Historian tags.
+    source_doc: https://www.gevernova.com/software/documentation/historian/version2025/index.html
+    confidence: low
+    note: documented as a REST API section ("Managing Tags"); individual paths not transcribed here
+  - name: manage_alarms_and_events
+    description: Back up, purge and restore Historian alarms and events.
+    source_doc: https://www.gevernova.com/software/documentation/historian/version2025/index.html
+    confidence: low
+  - name: odata_metadata
+    description: Fetch the OData $metadata schema for the APM Web API OData service.
+    method: GET
+    uri_template: https://{apm-host}/meridium/api/odata/$metadata
+    source_doc: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
+    confidence: high
+  - name: odata_query_entity_set
+    description: >-
+      Query an APM family as an OData entity collection with $select, $filter, $top, $skip,
+      $orderby, $expand and $count.
+    method: GET
+    uri_template: https://{apm-host}/meridium/api/odata/{EntitySet}
+    source_doc: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
+    confidence: high
+  - name: apm_simple_ingest
+    description: Create or update an APM entity, relationship or ACA matrix through Simple Ingestion v2.
+    method: POST
+    uri_template: '{Ingestor_API_path}/v2/simpleIngest'
+    source_doc: https://www.gevernova.com/software/documentation/cloud-apm/latest/simple-ingestion-base-URL-v2.html
+    confidence: high
+  - name: ops_hub_get_entity_data
+    description: Retrieve rows from any custom Operations Hub entity, with filters.
+    method: POST
+    uri_template: https://{operations-hub-site-url}/app/iqp/api/rest/DB/data/get
+    source_doc: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
+    confidence: high
+  - name: ops_hub_insert_entity_data
+    description: Insert rows into a custom Operations Hub entity.
+    method: POST
+    uri_template: https://{operations-hub-site-url}/app/iqp/api/rest/DB/data/insert
+    source_doc: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
+    confidence: high
+  - name: ops_hub_get_m2m_data
+    description: Retrieve device telemetry from the Operations Hub M2M_data entity.
+    method: POST
+    uri_template: https://{operations-hub-site-url}/app/iqp/api/rest/iot/data
+    source_doc: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
+    confidence: high

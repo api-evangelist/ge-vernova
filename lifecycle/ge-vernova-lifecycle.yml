@@ -1,0 +1,85 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/documentation/cloud-apm/latest/api-notices-upcoming-api-deprecations.html
+versioning:
+  scheme: uri-path
+  note: >-
+    Every documented GE Vernova API carries its version in the path. Historian REST is
+    /historian-rest-api/v1/ with a v2 model service (/historian-model/v2/objectTypes); APM services
+    run v1 and v3 side by side (/v1/assets, /v3/assets) and the Simple Ingestion API is at
+    /v2/simpleIngest; Operations Hub integration APIs are unversioned under /app/iqp/api/rest/.
+    Products themselves are versioned by release year (Historian 2025, Plant Applications 2025,
+    Operations Hub 2025) and APM by build number (V5.3.3, June 2026).
+  current:
+    historian_rest_api: v1
+    historian_model_api: v2
+    apm_asset_api: v3
+    apm_simple_ingestion: v2
+  docs: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html
+deprecation:
+  policy_url: https://www.gevernova.com/software/documentation/cloud-apm/latest/api-notices-upcoming-api-deprecations.html
+  archive_url: https://www.gevernova.com/software/documentation/cloud-apm/latest/api-notices-past-api-deprecations.html
+  sunset_header: false
+  note: >-
+    Cloud APM maintains a dedicated "API Notices" section with two standing pages — Upcoming API
+    Deprecations and Modifications, and Past API Deprecations and Modifications. Each notice names
+    the affected service and version, an effective date, the affected points of presence, the exact
+    endpoints being disabled, and an initial notification date, which in the recorded cases ran
+    6-12 months ahead of the effective date. As of this probe the Upcoming page reads "There are no
+    upcoming API deprecations and modifications." No RFC 8594 Sunset/Deprecation response headers
+    are documented — the notice is a documentation page, not a runtime signal.
+  observed_lead_time: >-
+    APM Asset Network / Equipment Template — initial notification 2019-02-26, effective 2020-09-18.
+  past_notices:
+    - service: APM Asset Network and APM Asset Equipment Template
+      effective: '2020-09-18'
+      notified: '2019-02-26'
+      pops: [US-West, EU-Central, GovCloud]
+      endpoints_disabled:
+        - /v1/networks and /v3/networks (and nodes, edges, query variants)
+        - /v1/assetTemplates and /v3/assetTemplates (and tags, placeholders, query variants)
+        - /v1/equipmentInstances (preview, create, {uuid})
+    - service: APM Alert
+      effective: '2019-03-27'
+      notified: '2020-01-19'
+      pops: [US-East, US-West, EU-Central, Frankfurt, GovCloud]
+      change: >-
+        Alert responses stopped carrying associatedMonitoredEntity asset measurement-tag fields;
+        consumers were directed to the APM Asset service.
+    - service: APM Asset / APM Asset Adapter
+      effective: '2019-01-24'
+      notified: '2018-06-01'
+      pops: [US-East, US-West, EU-Central, GovCloud]
+      change: >-
+        Routes apm-s95-adapter-svc and apm-adapter-config-provider-svc deprecated in favour of
+        apm-asset-adapter-svc; parent->parent-> query indirection deprecated; the COMPONENTS query
+        parameter default changed from FULL to BASIC.
+    - service: apm-timeseries-query-svc/v1
+      effective: '2018-04-20'
+      notified: '2017-11'
+      pops: [US-West, US-East, EU-Central]
+      change: >-
+        Query functionality deprecated in favour of /v2+; ingestion moved to the separate
+        apm-timeseries-ingestion-svc.
+sla:
+  url: https://www.gevernova.com/software/documentation/compliance/SAAS_availabilty_SLS.pdf
+  uptime_target: 99.9%
+  basis: monthly
+  scope: >-
+    Applies to cloud SaaS "Hosted Services" offered by GE Vernova's Digital business as named in
+    the order documents. Explicitly does NOT apply to on-premises software, to products from other
+    GE Vernova divisions, or to connectivity to edge devices/appliances. Beta, trial, early-access
+    and demo use is excluded, as are intermittent outages of ten minutes or less.
+  designated_pops: [US-West, EU-Frankfurt]
+status_page:
+  url: null
+  note: >-
+    No public status page was found. status.gevernova.com does not resolve. Availability and
+    maintenance notices are delivered to customers through the GridOS Basecamp customer portal and
+    the software support portal, both of which require a login.
+support:
+  portal: https://softwaresupport.gevernova.com/
+  page: https://www.gevernova.com/software/technical-support
+  basecamp: https://www.gevernova.com/software/basecamp-customer-portal
+changelog: changelog/ge-vernova-changelog.yml
+deprecated_operations: []

@@ -1,0 +1,33 @@
+generated: '2026-09-12'
+method: probed
+probe: true
+url: https://trust.gevernova.com/
+note: >-
+  trust.gevernova.com resolves and returns HTTP 200. It is a Whistic-hosted trust portal delivered
+  as an Angular single-page application — the served HTML is a shell with an empty <title> and no
+  body text, and the SPA's own config endpoints are answered by the same catch-all shell, so the
+  certification inventory it renders could not be read by a non-browser client. The certifications
+  recorded below therefore come from the page GE Vernova serves as readable HTML, the
+  Electrification Software cybersecurity page, not from the trust portal.
+vendor: Whistic
+certifications:
+  - ISO 27001
+  - ISO 27017
+  - ISO 27018
+  - ISO 27701
+  - ISO 9001
+  - IEC 62443-4-1
+  - SOC 3
+  - SOC 3 Type 2
+frameworks:
+  - NIST Cybersecurity Framework
+compliance_page: https://www.gevernova.com/software/cybersecurity
+detail: conformance/ge-vernova-conformance.yml
+evidence:
+  - source: https://trust.gevernova.com/
+    status: 200
+    keywords: [whistic]
+    note: SPA shell, no readable body content
+  - source: https://www.gevernova.com/software/cybersecurity
+    status: 200
+    keywords: [iso 27001, iec 62443, nist, soc 3, compliance, penetration testing]

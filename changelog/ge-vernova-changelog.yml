@@ -1,0 +1,61 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm.html
+scheme: dated-quarterly-releases
+note: >-
+  GE Vernova publishes change history in two layers. Cloud APM carries a "What's New" document
+  organised by quarter and release date, plus per-module quarterly Release Notes (e.g.
+  asset-hierarchy-rn-q2-2026, inspection-mgmt-rn-q2-2026) going back to 2017. The on-premises
+  Proficy products (Historian, Plant Applications, Operations Hub, CSense, iFIX, CIMPLICITY) each
+  ship a Release Notes / Important Product Information book inside their own documentation tree,
+  versioned by release year. The recent window is captured here; the live documents are the source
+  of truth.
+current_version: APM V5.3.3
+docs:
+  apm_whats_new: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm.html
+  historian_release_notes: https://www.gevernova.com/software/documentation/historian/version2025/index.html
+  plant_applications_release_notes: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/index.html
+  operations_hub_release_notes: https://www.gevernova.com/software/documentation/opshub/version2025/index.html
+entries:
+  - version: '5.3300'
+    date: '2026-06-18'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-53300.html
+    breaking: false
+    highlights:
+      - RBI 581 Admin Options extended to support site-specific preferences alongside global settings
+      - Rounds Pro Step Templates gained a tree view for conditional steps
+      - In-App Guidance reorganised into Guided Tours and Help & Support sections
+      - SIS Management support for ExSILentia 4.26.1.3
+  - version: '5.3200'
+    date: '2026-03-27'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-53200.html
+    breaking: false
+  - version: '5.3100'
+    date: '2025-12-05'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-53100.html
+    breaking: false
+  - version: '5.3000'
+    date: '2025-09-26'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-53000.html
+    breaking: false
+  - version: '5.2300'
+    date: '2025-06-27'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-52300.html
+    breaking: false
+  - version: '5.2200'
+    date: '2025-03-21'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-52200.html
+    breaking: false
+  - version: '5.2100'
+    date: '2024-12-06'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-52100.html
+    breaking: false
+  - version: '5.2000'
+    date: '2024-09-27'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-52000.html
+    breaking: false
+  - version: '5.1300'
+    date: '2024-07-31'
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm-51300.html
+    breaking: false
+api_change_notices: lifecycle/ge-vernova-lifecycle.yml

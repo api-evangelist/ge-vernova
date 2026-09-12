@@ -1,0 +1,158 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/cybersecurity
+note: >-
+  Standards conformance for the GE Vernova Electrification Software portfolio, read from the
+  product documentation and the published compliance page. Nothing here is inferred from an
+  OpenAPI, because no GE Vernova product publishes one.
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      Proficy Authentication (Cloud Foundry UAA) is the OAuth2 authorization server for the Proficy
+      products; clients, grant types, authorities and scopes are administered in it, and product
+      Swagger UIs authorize against its password and client-credentials flows.
+    url: https://www.gevernova.com/software/documentation/uaa/version2025/index.html
+  - id: oidc
+    conforms: true
+    evidence: >-
+      softwaresupport.gevernova.com serves an RFC 8414 / OpenID Connect discovery document at
+      /.well-known/openid-configuration (HTTP 200, application/json) whose issuer is that host.
+    url: https://softwaresupport.gevernova.com/.well-known/openid-configuration
+    artifact: well-known/ge-vernova-openid-configuration.json
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: no application/problem+json is documented; errors are HTTP status plus a numeric ErrorCode
+  - id: hateoas
+    conforms: true
+    evidence: >-
+      "Historian APIs use a REST application architecture constrained by Hypermedia as the Engine of
+      Application State (HATEOAS)... Do not create your own URIs. Instead, use the links in this
+      document and in the responses to navigate between resources."
+    url: https://www.gevernova.com/software/documentation/historian/version2025/c_standards.html
+  - id: json-api
+    conforms: false
+    evidence: responses are plain JSON, not JSON:API
+  - id: idempotency
+    conforms: false
+    evidence: no idempotency-key mechanism is documented on any write surface
+  - id: pagination
+    conforms: partial
+    evidence: >-
+      OData system query options ($top/$skip/$count) on APM data extraction; Historian caps result
+      sets rather than paging them.
+domain_standards:
+  note: >-
+    These are the market standards the CONTRACT itself speaks, evidenced at the exact documentation
+    location where the product declares them — not marketing claims.
+  standards:
+  - id: odata
+    name: OData
+    conforms: true
+    evidence: >-
+      APM Web API hosts an OData service at {{host}}/meridium/api/odata with a $metadata document,
+      EntityCollection / EntityById / Property / projected-entity resources, server-driven
+      pagination, and the $count/$select/$filter/$top/$orderby/$expand/$skip system query options
+      plus the standard OData string, math and date functions and binary operators.
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
+  - id: b2mml-isa95
+    name: B2MML / ANSI-ISA-95
+    conforms: true
+    evidence: >-
+      Proficy Plant Applications ERP integration accepts and publishes B2MML documents as an
+      alternative to JSON — Work Order Import (WOID), Process Order Import (POID), Material Master
+      Import (MMID) and Material Lot import documents, with a documented ProductionPerformance
+      payload structure on the outbound side. The Plant Applications service inventory is itself
+      ISA-95 shaped (segments-definition-service, work-order-service, process-order-service), and
+      APM's deprecated adapter route was named apm-s95-adapter-svc.
+    url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/c_erp_intg_std_b2mml_for_work_order_example.html
+  - id: opc-ua
+    name: OPC Unified Architecture
+    conforms: true
+    evidence: >-
+      Proficy Historian ships an OPC UA DA collector and acts as an OPC UA HDA (Historical Data
+      Access) server, with a published supported-data-type table.
+    url: https://www.gevernova.com/software/documentation/historian/version2025/c_about_opc_ua_hda_server.html
+  - id: opc-classic
+    name: OPC Classic (DA / HDA / A&E)
+    conforms: true
+    evidence: >-
+      Historian ships OPC Classic DA, HDA and Alarms & Events collectors and an OPC Classic HDA
+      server.
+    url: https://www.gevernova.com/software/documentation/historian/version2025/index.html
+  - id: mqtt-sparkplug-b
+    name: Eclipse Sparkplug B over MQTT
+    conforms: true
+    evidence: >-
+      Proficy Historian ships a dedicated MQTT Sparkplug B collector alongside its plain MQTT
+      collector; Proficy Operations Hub includes an MQTT client with a defined topic namespace.
+    url: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_collector_about_mqtt_sparkplugb.html
+  - id: mtconnect
+    name: MTConnect
+    conforms: true
+    evidence: >-
+      GE Vernova publishes a standalone MTConnect book in the Proficy documentation set and lists it
+      in robots.txt as an indexable documentation entry point.
+    url: https://www.gevernova.com/software/documentation/mtconnect/index.html
+  - id: kafka
+    name: Apache Kafka
+    conforms: true
+    evidence: >-
+      Plant Applications publishes a per-service Kafka topic catalogue with documented JSON and
+      B2MML payload structures and a named failed-event (dead letter) topic.
+    url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/kafka/pa_webclient_Kafkaservices_topics.html
+  - id: iec-61850
+    name: IEC 61850
+    conforms: unknown
+    evidence: >-
+      Not claimed anywhere in the public GE Vernova software documentation that was reachable. GE
+      Vernova Grid Solutions substation products are documented behind the GridOS Basecamp customer
+      portal, which requires a login, so this could not be established either way.
+  - id: iec-61968-61970-cim
+    name: IEC 61968 / 61970 Common Information Model
+    conforms: unknown
+    evidence: >-
+      No CIM claim was found on the public GridOS pages. (The only "CIM" strings on those pages are
+      the CIMPLICITY product name in the navigation.) GridOS technical documentation sits behind the
+      Basecamp customer portal.
+compliance:
+  published: true
+  url: https://www.gevernova.com/software/cybersecurity
+  note: >-
+    GE Vernova Electrification Software publishes its compliance posture per product family. The
+    parent security program has adopted the NIST Cybersecurity Framework and ISO 27001.
+  certifications:
+    - scope: Grid Software
+      certifications:
+        - ISO 27001 (Information Security Management System)
+        - ISO 9001 (Quality Management System)
+        - ISO 27001 (Greenbird Integration Technology)
+        - IEC 62443-4-1 (Secure Product Development Lifecycle)
+    - scope: Asset Performance Management, SmartSignal, Operations Performance Management
+      certifications:
+        - ISO 27001 (Information Security Management System)
+        - ISO 27017 (Cloud Services)
+        - ISO 27701 (Privacy Information Management System)
+        - ISO 27018 (Cloud Services)
+        - ISO 9001 (Quality Management System)
+    - scope: Asset Performance Management (APM)
+      certifications:
+        - SOC 3
+    - scope: Proficy Historian, Proficy HMI/SCADA (CIMPLICITY & iFIX), Proficy Plant Applications MES, Proficy Operations Hub
+      certifications:
+        - ISO 27001 (Information Security Management System)
+        - ISO 27017 (Cloud Services)
+        - ISO 27701 (Privacy Information Management System)
+        - ISO 27018 (Cloud Services)
+        - ISO 9001 (Quality Management System)
+    - scope: Proficy Smart Factory Cloud System
+      certifications:
+        - SOC 3 Type 2
+  frameworks:
+    - NIST Cybersecurity Framework (govern, identify, protect, detect, respond, recover)
+    - ISO 27001
+    - IEC 62443-4-1
+  certificate_documents:
+    - https://www.gevernova.com/software/resources/certificate/iso-27001-certificate-information-security-management-system
+    - https://www.gevernova.com/software/resources/certificate/iso-27001-information-security-management-system-iso-27017-cloud-services
+    - https://www.gevernova.com/software/resources/datasheet/information-security-and-compliance

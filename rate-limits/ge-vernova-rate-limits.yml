@@ -1,0 +1,34 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/documentation/historian/version2025/c_api_status_messages.html
+limit_count: 0
+note: >-
+  No published rate limits, quotas, throttling policy, or rate-limit response headers were found for
+  any GE Vernova Electrification Software API. This is consistent with the deployment model: the
+  Proficy REST services run on the customer's own servers, so throughput is bounded by the
+  installation rather than by a vendor quota. What IS published is a set of result-size and
+  licensing ceilings, recorded below because they are the nearest thing to a documented limit an
+  integrator will hit. No 429 is documented — the published status contract stops at 500.
+limits: []
+headers: []
+exhaustion_status: null
+related_ceilings:
+  - kind: result-size
+    signal: TagSearchResultIsHuge (ErrorCode 11)
+    detail: a tag search whose result exceeds 5000 rows is rejected
+    source: https://www.gevernova.com/software/documentation/historian/version2025/r_error_code_definition.html
+  - kind: result-size
+    signal: QueryResultSizeExceeded (ErrorCode -24)
+    detail: upper limit on query results exceeded; the limit itself is an installation setting
+  - kind: licensing
+    signal: LicensedTagCountExceeded (ErrorCode -15)
+    detail: number of licensed tags exceeded
+  - kind: licensing
+    signal: LicensedConnectionCountExceeded (ErrorCode -16)
+    detail: number of licensed server connections exceeded
+  - kind: payload-shape
+    signal: COMPONENTS query parameter default
+    detail: >-
+      APM changed the COMPONENTS default on asset endpoints from FULL to BASIC in January 2019,
+      explicitly to stop large payloads transiting the network; callers that need FULL must ask.
+    source: https://www.gevernova.com/software/documentation/cloud-apm/latest/api-notices-past-api-deprecations.html

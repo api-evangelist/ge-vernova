@@ -1,0 +1,65 @@
+generated: '2026-09-12'
+method: searched
+source: >-
+  https://www.gevernova.com/software/documentation/uaa/version2025/index.html
+docs:
+  - https://www.gevernova.com/software/documentation/uaa/version2025/index.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/t_historian_swagger_documentation.html
+  - https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-authentication.html
+  - https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
+note: >-
+  No OpenAPI/Swagger document is published for any GE Vernova Electrification Software product —
+  each product's Swagger UI is served from the customer's own installed instance — so this profile
+  is read from the published documentation rather than derived from a spec.
+summary:
+  types: [oauth2, http, custom-token]
+  api_key_in: []
+  oauth2_flows: [password, clientCredentials, authorizationCode]
+  identity_provider: Proficy Authentication (Cloud Foundry UAA) for on-premises Proficy products; Predix UAA for Cloud APM
+schemes:
+  - name: ProficyAuthentication
+    type: oauth2
+    product: Proficy Historian / Plant Applications / Operations Hub / iFIX
+    description: >-
+      Proficy Authentication (UAA) provides identity-based security for Proficy applications. REST
+      clients obtain a bearer token from the UAA token endpoint and present it to the product's
+      REST service; the Swagger UI shipped with each product authorizes against the same service.
+    flows:
+      - flow: password
+        note: >-
+          Historian's own documentation shows the Swagger UI authorizing with the oauth2schema
+          (OAuth2, password) section using client_id historian_public_rest_api.
+      - flow: clientCredentials
+        note: clients are created and granted authorities/scopes in Proficy Authentication
+    scopes_reference: scopes/ge-vernova-scopes.yml
+    source: https://www.gevernova.com/software/documentation/uaa/version2025/index.html
+  - name: PredixUAA
+    type: oauth2
+    product: Cloud APM (OData data-extraction API, Simple Ingestion API)
+    description: >-
+      APM OData and ingestion requests are authenticated against Predix UAA. Two calls are
+      required — an HTTP POST to {{uaa-uri}}/oauth/token with grant_type=password and a Basic
+      authorization header, then the API call with the resulting access token. APM's docs state
+      explicitly that SSO credentials cannot be used for OData; a UAA account is required.
+    flows:
+      - flow: password
+        tokenUrl: '{{uaa-uri}}/oauth/token'
+    source: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-authentication.html
+  - name: OperationsHubIntegrationToken
+    type: custom-token
+    product: Proficy Operations Hub integration REST APIs
+    description: >-
+      The Operations Hub integration APIs use a product-specific login rather than OAuth. A client
+      POSTs {"username":"<user>","password":"<pass>"} to
+      https://<Operations Hub_Site_URL>/app/iqp/api/rest/login and receives {"code":"1","token":"<token>"};
+      the token is then passed in the body of every subsequent integration call.
+    source: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
+  - name: SupportPortalOIDC
+    type: openIdConnect
+    product: GE Vernova software support portal
+    description: >-
+      softwaresupport.gevernova.com publishes an OpenID Connect discovery document at
+      /.well-known/openid-configuration whose issuer is the same host. It is the customer/partner
+      sign-in for the support portal, not a product API authorization server.
+    openIdConnectUrl: https://softwaresupport.gevernova.com/.well-known/openid-configuration
+    artifact: well-known/ge-vernova-openid-configuration.json

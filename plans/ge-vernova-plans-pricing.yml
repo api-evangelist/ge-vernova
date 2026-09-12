@@ -1,0 +1,22 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/products
+plan_count: 0
+currency: null
+note: >-
+  GE Vernova Electrification Software publishes no pricing page, no plan tiers and no rate card.
+  https://www.gevernova.com/software/pricing returns 404. Every product route ends at "Contact Us"
+  or a Marketo demo-request form; commercial terms are set in order documents between the customer
+  and GE Vernova's Digital business (the SaaS Service Level Standards PDF refers to them as "the
+  order documents between Digital and Customer"). The only self-serve motion is a free downloadable
+  trial of four on-premises products, captured in sandbox/ge-vernova-sandbox.yml — those are
+  registration-gated software downloads, not a priced tier.
+plans: []
+evidence:
+  - url: https://www.gevernova.com/software/pricing
+    status: 404
+  - url: https://www.gevernova.com/software/product-trials-demos
+    status: 200
+  - url: https://www.gevernova.com/software/documentation/compliance/SAAS_availabilty_SLS.pdf
+    status: 200
+sales_motion: enterprise-contact-sales

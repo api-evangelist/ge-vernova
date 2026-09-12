@@ -1,0 +1,131 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/documentation/historian/version2025/c_standards.html
+note: >-
+  Cross-cutting request/response semantics for the GE Vernova Electrification Software REST
+  surfaces, read from the published product documentation. There is no OpenAPI to derive from —
+  every product's Swagger UI is served from the customer's own installed instance, so nothing
+  machine-readable is published.
+authentication:
+  style: oauth2-bearer
+  detail: >-
+    Proficy products authenticate against Proficy Authentication (Cloud Foundry UAA); Cloud APM
+    OData authenticates against Predix UAA with a password-grant token call followed by the API
+    call. Operations Hub integration APIs use a product-specific login that returns a token carried
+    in the request body rather than an Authorization header.
+  artifact: authentication/ge-vernova-authentication.yml
+architecture:
+  style: REST + HATEOAS
+  detail: >-
+    "Historian APIs use a REST application architecture constrained by Hypermedia as the Engine of
+    Application State (HATEOAS)... Important: Do not create your own URIs. Instead, use the links in
+    this document and in the responses to navigate between resources." Responses are JSON.
+  source: https://www.gevernova.com/software/documentation/historian/version2025/c_standards.html
+http_methods:
+  GET: Retrieves a resource.
+  POST: Creates (or adds) a resource.
+  PUT: Updates a resource.
+  DELETE: Removes a resource.
+  source: https://www.gevernova.com/software/documentation/historian/version2025/c_api_methods.html
+idempotency:
+  supported: false
+  coverage: none
+  header: null
+  detail: >-
+    No idempotency key, request-deduplication token, or replay-protection mechanism is documented
+    for any GE Vernova Electrification Software REST API. Historian's error registry does carry
+    DuplicateData (-6, "Attempt to overwrite an existing data sample") and DuplicateCollector (-19),
+    which are uniqueness constraints on the stored entity rather than a retry-safety contract for
+    the caller: a retried write is rejected as a duplicate, not silently reconciled to the original
+    response. A client that retries a failed POST has no documented way to learn whether the first
+    attempt landed.
+pagination:
+  styles:
+    - product: Cloud APM OData
+      style: system-query-options
+      params: [$top, $skip, $count, $select, $filter, $orderby, $expand]
+      response: server-driven pagination is supported by the OData service
+      note: $select and $expand are limited to a depth level of 1
+      source: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
+    - product: Proficy Historian REST
+      style: parameter-bounded query
+      params: [tagNames, start, end, SamplingModeType, Direction, CalculationModeType, FilterModeType, ReturnDataFields, Payload]
+      note: >-
+        Result-set size is capped rather than paged — TagSearchResultIsHuge (11) fires when a tag
+        search returns more than 5000 rows, and QueryResultSizeExceeded (-24) when a data query
+        exceeds the configured upper limit.
+      source: https://www.gevernova.com/software/documentation/historian/version2025/c_general_api_overview.html
+field_selection:
+  supported: true
+  detail: >-
+    OData $select and $expand on APM data extraction; APM Asset endpoints take a COMPONENTS query
+    parameter (BASIC or FULL, defaulting to BASIC since January 2019); the APM Alert filter
+    endpoints take an explicit fields= list.
+request_tracing:
+  request_id_header: null
+  detail: no correlation/request-id header is documented
+versioning:
+  style: uri-path
+  artifact: lifecycle/ge-vernova-lifecycle.yml
+error_envelope:
+  style: http-status + numeric ErrorCode
+  problem_json: false
+  detail: >-
+    HTTP status codes follow standard REST conventions (200/201/204/400/401/403/404/500, identical
+    contract documented for Historian and Plant Applications). Historian responses additionally
+    carry a numeric ErrorCode from a published 57-entry registry. No application/problem+json.
+  artifact: errors/ge-vernova-error-codes.yml
+rate_limit_signaling:
+  headers: []
+  detail: no rate-limit response headers or quota documentation were found
+  artifact: rate-limits/ge-vernova-rate-limits.yml
+dry_run_mode:
+  supported: na
+  detail: >-
+    No documented dry-run / validate-only mode on any write surface. APM's Equipment Instance
+    surface had an op=preview query parameter, but those endpoints were disabled by the 2020-09-18
+    deprecation notice.
+reversibility:
+  grade: documented
+  detail: >-
+    The write surfaces are data-plane operations against a historian and an MES, and GE Vernova
+    documents reversal paths for the destructive ones — but never a window inside which the reversal
+    is guaranteed to work, so this grades `documented` and not `verified`. Do not read a retention
+    period into any of these: the documentation states the mechanism, not a deadline.
+  reversals:
+    - write_surface: Delete archive data / purge alarms and events
+      reversal: Restore from backup
+      operation: Historian archive Backup/Restore functions (synchronous and asynchronous calls to load, back up and remove an archive); Configuration Hub "Restore Alarms"
+      window: null
+      window_note: >-
+        No restore window is stated. The docs say purged alarm data "is not lost; a backup is
+        created to maintain an audit trail" and can be restored, but do not say for how long the
+        backup is retained.
+      docs: https://www.gevernova.com/software/documentation/historian/version2025/c_archiver_backup_restore.html
+    - write_surface: Write / delete tag samples
+      reversal: none
+      operation: null
+      window: bounded by the configured active range, not by a stated duration
+      window_note: >-
+        Writes outside the configured active range are refused (WriteOutsideActiveRange, -12) and
+        deletes outside the allowed modification interval are refused (DeleteOutsideActiveRange,
+        -25). The interval is a per-installation configuration value; no default is published.
+      docs: https://www.gevernova.com/software/documentation/historian/version2025/r_error_code_definition.html
+    - write_surface: Start / stop / restart a collector instance
+      reversal: the inverse operation
+      operation: Start Collector (PUT /historian-rest-api/v1/collector/start) and the matching stop/restart calls
+      window: null
+      docs: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collectors_apis.html
+    - write_surface: Plant Applications ERP outbound messages
+      reversal: replay from the failed-events topic
+      operation: consume mes.failedevents.<site-id>
+      window: null
+      window_note: bounded by the Kafka retention configured for the installation; no value is published
+      docs: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/r_erp_intg_kafka_topics.html
+cross_links:
+  errors: errors/ge-vernova-error-codes.yml
+  lifecycle: lifecycle/ge-vernova-lifecycle.yml
+  authentication: authentication/ge-vernova-authentication.yml
+  scopes: scopes/ge-vernova-scopes.yml
+  rate_limits: rate-limits/ge-vernova-rate-limits.yml
+  events: asyncapi/ge-vernova-event-surface.yml

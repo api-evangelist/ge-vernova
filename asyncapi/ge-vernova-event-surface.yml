@@ -1,0 +1,97 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/kafka/pa_webclient_Kafkaservices_topics.html
+spec_type: none
+note: >-
+  GE Vernova publishes no AsyncAPI document for any Electrification Software product. It does
+  publish a real, documented event surface, and it is message-broker shaped rather than HTTP-callback
+  shaped: Proficy Plant Applications ships a Kafka topic catalogue with a documented JSON (and
+  B2MML) payload structure per event, and Proficy Operations Hub ships an MQTT broker client with a
+  defined topic structure plus an M2M device REST surface whose three verbs are login / publish /
+  subscribe. Proficy Historian collects from MQTT and MQTT Sparkplug B brokers and can serve as an
+  OPC UA HDA / OPC Classic HDA server. No webhook (provider-initiated HTTP callback) surface is
+  documented anywhere in the public product documentation.
+surfaces:
+  - name: Proficy Plant Applications Kafka topics
+    transport: kafka
+    docs: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/kafka/pa_webclient_Kafkaservices_topics.html
+    payload_formats: [JSON, B2MML]
+    topic_convention: '<service>.<entity>.<site-id>  (site-id example: site0001)'
+    channels:
+      - service: ERP Export
+        topics:
+          - mes.erp.outbound.messages.laborVouchering.<site-id>
+          - mes.erp.outbound.messages.<site-id>
+          - mes.billOfMaterial.billOfMaterials.<site-id>
+        events: >-
+          Clock-on / Clock-off, Operation Complete, Material Scrap, Release Route,
+          Process/Work Order Created, Updated, Completed, Deleted, BOM Release/Create/Revise
+      - service: ERP Import
+        topics: [mes.erp.inbound.messages.<site-id>]
+        events: Inbound request processes
+      - service: Route
+        topics: [mes.route.releasedRoutes.<site-id>, mes.apc.workflows.<site-id>]
+        events: Release Route
+      - service: MES
+        topics: [mes.plantapps.messages.<site-id>, mes.failedevents.<site-id>, mes.apc.workflows.<site-id>]
+        events: Production Plan, Workflow Change
+      - service: Comment
+        topics: [mes.comment.commentThreads.<site-id>]
+        events: Comment Thread Created, Updated, Deleted, Count Change
+      - service: Product
+        topics:
+          - mes.product.materialLots.<site-id>
+          - mes.product.assignment.<site-id>
+          - mes.product.bomReallocation.<site-id>
+          - mes.products.materiallot.statusChange.<site-id>
+      - service: Operator Log
+        topics: [mes.operatorlog.events.<site-id>]
+        events: Operator Log Change
+      - service: Nodes Class
+        topics: [mes.nodesclasses.publishResult.<site-id>]
+      - service: PA Core
+        topics: [mes.activities.activityVariableCounts.<site-id>]
+      - service: Change Data Capture
+        topics:
+          - mes.cdc.prodLinesBase.<site-id>
+          - mes.cdc.prodUnitsBase.<site-id>
+          - mes.cdc.productSerialized.<site-id>
+          - mes.cdc.productsBase.<site-id>
+      - service: Approval Cockpit
+        topics: [mes.apc.workflows.<site-id>]
+        events: Workflow Change
+      - service: Labor
+        topics: [mes.failedevents.<site-id>]
+        events: Failed Event
+      - service: Work Order
+        topics: [mes.workorder.workorders.<site-id>]
+        events: Work Order Changes
+    dead_letter:
+      topic: mes.failedevents.<site-id>
+      note: unprocessed events are published here; the docs direct consumers to check it on failure
+  - name: Proficy Operations Hub MQTT
+    transport: mqtt
+    docs: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_mqtt_apis.html
+    note: >-
+      Operations Hub includes an MQTT client that can point at any reachable broker, or install a
+      local broker. It defines a standard MQTT topic structure and payload format keyed on Cloud ID,
+      Device ID and Instance so the server can attribute incoming data to the right asset; received
+      status messages are stored in the M2M_Data entity.
+  - name: Proficy Operations Hub M2M device REST
+    transport: http
+    docs: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_m2m_device_rest_apis.html
+    note: >-
+      Sensors and gateways connect directly over standard REST POST calls. Three handshake types
+      are defined — Login (authenticate), Publish (send new sensor data), Subscribe (request new
+      commands or control instructions). Messages are JSON name/value pairs. This is a device-pull
+      subscribe, not a provider-push webhook.
+  - name: Proficy Historian collectors
+    transport: [mqtt, mqtt-sparkplug-b, opc-ua, opc-classic]
+    docs: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_collector_about_mqtt_sparkplugb.html
+    note: >-
+      Historian ships MQTT, MQTT Sparkplug B, OPC UA DA, OPC Classic DA/HDA/A&E, OSI PI and
+      server-to-server collectors, and can itself act as an OPC UA HDA and OPC Classic HDA server.
+      These are streaming ingest/egress interfaces rather than an application event bus.
+webhooks:
+  documented: false
+  note: no provider-initiated HTTP callback surface is documented for any product

@@ -1,0 +1,50 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/product-trials-demos
+note: >-
+  GE Vernova does not run a hosted API sandbox with test credentials. What it publishes instead is
+  (a) free downloadable trials of four on-premises Proficy products, which is how a developer gets a
+  working instance of the REST APIs, and (b) interactive product demos. The Swagger UI shipped with
+  each installed product is the try-it console. No test card numbers, magic identifiers, test-mode
+  key prefixes or time-simulation tooling exist for this portfolio; none were invented here.
+test_live_separation:
+  model: install-your-own-instance
+  detail: >-
+    There is no test/live key-prefix split. A trial installation is a full product installation; the
+    REST services it exposes are the same services a production installation exposes.
+trials:
+  - product: Proficy CSense
+    kind: free software trial
+    url: https://www.gevernova.com/software/product-trials-demos
+  - product: Proficy iFIX HMI/SCADA
+    kind: free software trial
+    url: https://www.gevernova.com/software/product-trials-demos
+  - product: Proficy CIMPLICITY HMI/SCADA
+    kind: free software trial
+    url: https://www.gevernova.com/software/product-trials-demos
+  - product: Proficy Historian
+    kind: free software trial
+    url: https://www.gevernova.com/software/product-trials-demos
+  - product: Proficy Operations Hub
+    kind: free software trial
+    url: https://www.gevernova.com/software/product-trials-demos
+interactive_demos:
+  - https://www.gevernova.com/software/product-demos/hiem-demo/home.html
+  - https://www.gevernova.com/software/product-demos/automotive-demo/home.html
+  - https://www.gevernova.com/software/product-demos/chemical-demo/home.html
+  - https://www.gevernova.com/software/product-demos/mes-demo/
+api_consoles:
+  - product: Proficy Historian
+    url_template: https://<web-based-client-machine-name>/historian-rest-api/swagger-ui.html
+    auth: >-
+      Swagger UI "Authorize" → oauth2schema (OAuth2, password). GE Vernova's documentation publishes
+      the evaluation client identifier for this console — client_id historian_public_rest_api — and
+      the username defaults to <machinename>.admin. The username and password are the operator's
+      own web-client login; only the client identifier is a published value.
+    source: https://www.gevernova.com/software/documentation/historian/version2025/t_historian_swagger_documentation.html
+  - product: Proficy Plant Applications
+    url_template: https://<FQDN-or-Hostname>:5059/<service-name>/swagger-ui/index.html
+    note: 37 microservices each expose their own Swagger UI on port 5059 of the Web Client host
+    source: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_swagger_urls_of_rest_services_restapi.html
+test_values: []
+time_simulation: null

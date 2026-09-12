@@ -1,0 +1,190 @@
+generated: '2026-09-12'
+method: probed
+source: live GET of the named /.well-known/ path list on every host this record knows
+note: >-
+  One real document was found: an OpenID Connect discovery document served by the GE Vernova
+  software support portal (softwaresupport.gevernova.com), whose issuer is that same host. The
+  portal runs on Salesforce Experience Cloud, so the scopes_supported list is Salesforce's; the
+  document is nevertheless served from, and issued by, a GE Vernova host. digitalsupport.ge.com is
+  the legacy GE Digital alias for the same portal and returns the byte-identical document.
+  www.gevernova.com / gevernova.com answer every /.well-known/ path with a 404 that renders the
+  full site shell (52KB of HTML); those are misses, not documents. A negative-control path that
+  cannot exist was probed on every host and never returned 2xx, so no host echoes paths.
+path_echo_control: passed
+hosts:
+  - host: https://www.gevernova.com
+    hit_count: 0
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/ucp.json
+        status: 404
+      - path: /.well-known/acp.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /apis.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/ge-vernova-negative-control-f4f3d9cf.json
+        status: 404
+        note: negative control — correctly absent
+  - host: https://gevernova.com
+    hit_count: 0
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /apis.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/ge-vernova-negative-control-2cd7acad.json
+        status: 404
+        note: negative control — correctly absent
+  - host: https://api.gevernova.com
+    hit_count: 0
+    note: >-
+      Host resolves and terminates TLS but every path returns a zero-length 404 — no API is served
+      at this name today.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /apis.json
+        status: 404
+      - path: /apis.yml
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/ge-vernova-negative-control-aeca07c2.json
+        status: 404
+        note: negative control — correctly absent
+  - host: https://softwaresupport.gevernova.com
+    hit_count: 1
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: ge-vernova-openid-configuration.json
+        content_type: application/json;charset=UTF-8
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/oauth-protected-resource
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 401
+      - path: /.well-known/aauth-resource.json
+        status: 401
+      - path: /.well-known/apis.json
+        status: 401
+      - path: /apis.json
+        status: 401
+      - path: /.well-known/agent-card.json
+        status: 401
+      - path: /.well-known/agent.json
+        status: 401
+      - path: /.well-known/ge-vernova-negative-control-4fecec8e.json
+        status: 401
+        note: negative control — correctly not served
+  - host: https://digitalsupport.ge.com
+    hit_count: 1
+    note: legacy GE Digital alias of the GE Vernova software support portal
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        content_type: application/json;charset=UTF-8
+        note: >-
+          byte-identical to the softwaresupport.gevernova.com document (same issuer); not saved
+          twice
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/oauth-protected-resource
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/apis.json
+        status: 401
+      - path: /apis.json
+        status: 401
+      - path: /.well-known/agent-card.json
+        status: 401
+      - path: /.well-known/agent.json
+        status: 401
+      - path: /.well-known/ge-vernova-negative-control-136d0ace.json
+        status: 401
+        note: negative control — correctly not served
+  - host: https://careers.gevernova.com
+    hit_count: 0
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /apis.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/ge-vernova-negative-control-9f1dbafd.json
+        status: 404
+        note: negative control — correctly absent

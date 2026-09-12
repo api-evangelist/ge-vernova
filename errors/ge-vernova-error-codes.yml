@@ -1,0 +1,86 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.gevernova.com/software/documentation/historian/version2025/r_error_code_definition.html
+format: vendor-error-registry
+note: >-
+  GE Vernova does not publish RFC 9457 problem+json for any Electrification Software product. What
+  it does publish is (a) an HTTP status-code contract that is identical across Historian and Plant
+  Applications, and (b) a numeric ErrorCode registry returned in Historian REST/SDK responses. Both
+  are transcribed verbatim from the product documentation. There is no OpenAPI to derive 4xx/5xx
+  response shapes from.
+docs:
+  - https://www.gevernova.com/software/documentation/historian/version2025/c_api_status_messages.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/r_error_code_definition.html
+  - https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_api_status_messages.html
+http_status_contract:
+  source: https://www.gevernova.com/software/documentation/historian/version2025/c_api_status_messages.html
+  statuses:
+    - {status: 200, title: OK, meaning: Success. The request has completed.}
+    - {status: 201, title: Created, meaning: A new resource has been created; the resource URI is in the Location header.}
+    - {status: 204, title: No Content, meaning: An update to an existing resource has been applied.}
+    - {status: 400, title: Bad Request, meaning: The request was malformed; the response body provides additional information.}
+    - {status: 401, title: Unauthorized, meaning: Not authenticated, or the authentication is incorrect. Re-authenticate and try again.}
+    - {status: 403, title: Forbidden, meaning: You do not have permission to access this resource.}
+    - {status: 404, title: Not Found, meaning: The requested resource does not exist.}
+    - {status: 500, title: Internal Error, meaning: The server encountered an unexpected condition.}
+error_codes:
+  source: https://www.gevernova.com/software/documentation/historian/version2025/r_error_code_definition.html
+  envelope_field: ErrorCode
+  codes:
+    - {code: 0, name: Success, meaning: Operation successful.}
+    - {code: -1, name: Failed, meaning: Operation failed.}
+    - {code: -2, name: Timeout, meaning: Operation failed due to timeout.}
+    - {code: -3, name: NotConnected, meaning: Not connected to Historian server.}
+    - {code: -4, name: CollectorNotFound, meaning: The given collector does not exist on the server.}
+    - {code: -5, name: NotSupported, meaning: Operation not supported.}
+    - {code: -6, name: DuplicateData, meaning: Attempt to overwrite an existing data sample.}
+    - {code: -7, name: InvalidUsername, meaning: Bad user name or password.}
+    - {code: -8, name: AccessDenied, meaning: Insufficient permissions for operation.}
+    - {code: -9, name: WriteInFuture, meaning: Attempted data write too far in the future.}
+    - {code: -10, name: WriteArchiveOffline, meaning: Attempted data write to an offline archive.}
+    - {code: -11, name: WriteArchiveReadonly, meaning: Attempted data write to a read-only archive.}
+    - {code: -12, name: WriteOutsideActiveRange, meaning: Attempted data write beyond the configured active range.}
+    - {code: -13, name: WriteNoArchiveAvailable, meaning: Attempted data write with no available archives.}
+    - {code: -14, name: InvalidTagname, meaning: The requested tag was not found.}
+    - {code: -15, name: LicensedTagCountExceeded, meaning: Number of licensed tags exceeded.}
+    - {code: -16, name: LicensedConnectionCountExceeded, meaning: Number of licensed server connections exceeded.}
+    - {code: -17, name: InternalLicenseError, meaning: Internal license error.}
+    - {code: -18, name: NoValue, meaning: No available tag data.}
+    - {code: -19, name: DuplicateCollector, meaning: The given collector name already exists on the server.}
+    - {code: -20, name: NotLicensed, meaning: Server or feature is not licensed.}
+    - {code: -21, name: CircularReference, meaning: Circular reference detected in calculation.}
+    - {code: -22, name: BackupInsufficientSpace, meaning: Insufficient disk space to perform backup.}
+    - {code: -23, name: InvalidServerVersion, meaning: Operation unsupported due to server version.}
+    - {code: -24, name: QueryResultSizeExceeded, meaning: Upper limit on query results exceeded.}
+    - {code: -25, name: DeleteOutsideActiveRange, meaning: Attempted data delete outside allowed modification interval.}
+    - {code: -26, name: AlarmArchiverUnavailable, meaning: Alarms and Events subsystem unreachable.}
+    - {code: -27, name: ArgumentException, meaning: A supplied argument is invalid.}
+    - {code: -28, name: ArgumentNullException, meaning: A supplied argument is NULL.}
+    - {code: -29, name: ArgumentOutOfRangeException, meaning: A supplied argument is outside the valid range.}
+    - {code: -30, name: InvalidEnumeratedSet, meaning: The requested Enumerated Set was not found.}
+    - {code: -31, name: InvalidDataStore, meaning: The requested data store was not found.}
+    - {code: -32, name: NotPermitted, meaning: Operation not permitted.}
+    - {code: -33, name: InvalidCustomDataType, meaning: The Custom data type is not supported.}
+    - {code: -34, name: ihSTATUS_EXISTING_USERDEF_REFERENCES, meaning: null}
+    - {code: -35, name: ihSTATUS_INVALID_TAGNAME_DELETEDTAG, meaning: null}
+    - {code: -36, name: ihSTATUS_INVALID_DHS_NODENAME, meaning: null}
+    - {code: -37, name: ihSTATUS_DHS_SERVICE_IN_USE, meaning: null}
+    - {code: -38, name: ihSTATUS_DHS_STORAGE_IN_USE, meaning: null}
+    - {code: -39, name: ihSTATUS_DHS_TOO_MANY_NODES_IN_MIRROR, meaning: null}
+    - {code: -40, name: ihSTATUS_ARCHIVE_IN_SYNC, meaning: null}
+    - {code: -41, name: InvalidArchiveName, meaning: null}
+    - {code: -49, name: ihSTATUS_INVALID_INTERFACETYPE, meaning: The collector type is not valid.}
+    - {code: -50, name: ihSTATUS_INTERFACE_START_FAIL, meaning: Starting the collector has failed.}
+    - {code: -51, name: ihSTATUS_INTERFACE_STOP_FAIL, meaning: Stopping the collector has failed.}
+    - {code: 1, name: InvalidSession, meaning: Session id is invalid.}
+    - {code: 2, name: SessionExpired, meaning: Session has expired.}
+    - {code: 3, name: UnknownError, meaning: Unknown error, please check server log.}
+    - {code: 4, name: NoValidClientBufferManager, meaning: No valid client buffer manager.}
+    - {code: 5, name: NoValueInDataSet, meaning: No value in returned data set.}
+    - {code: 6, name: TagNotExisting, meaning: Tag doesn't exist.}
+    - {code: 7, name: ClientBufferManagerCommunicationError, meaning: Service call to central buffer server failed.}
+    - {code: 8, name: TagTypeNotSupported, meaning: Tag type is not supported.}
+    - {code: 9, name: ValueTypeNotMatchTagDataType, meaning: Value type doesn't match tag data type.}
+    - {code: 10, name: InvalidParameter, meaning: Invalid query parameter.}
+    - {code: 11, name: TagSearchResultIsHuge, meaning: Tag search criteria result was more than 5000.}
+    - {code: 12, name: InvalidHistorianServer, meaning: No valid server, or the Historian server name is not in the server list.}
