@@ -1,17 +1,15 @@
 aid: ge-vernova
 name: GE Vernova
-description: >-
-  GE Vernova is accelerating the path to more reliable, affordable, and sustainable energy through
-  its innovative portfolio of electrification, power, and decarbonization technologies. Spun off
-  from General Electric in April 2024, GE Vernova brings together the legacy GE Power, Renewable
-  Energy, Digital, and Energy Financial Services businesses to help solve the world's energy
-  transition challenges. Its software arm, GE Vernova Electrification Software (the former GE
-  Digital), is where its API surface lives: Proficy industrial software — Historian, Plant
-  Applications MES, Operations Hub, CSense, iFIX and CIMPLICITY — alongside Asset Performance
-  Management (Meridium, SmartSignal) and GridOS for grid transmission, distribution and
-  orchestration. Every one of those APIs is documented publicly and runs on infrastructure the
-  customer operates, so each base URL is templated on the customer's own host rather than a
-  vendor-hosted endpoint.
+description: 'GE Vernova is accelerating the path to more reliable, affordable, and sustainable energy
+  through its innovative portfolio of electrification, power, and decarbonization technologies. Spun off
+  from General Electric in April 2024, GE Vernova brings together the legacy GE Power, Renewable Energy,
+  Digital, and Energy Financial Services businesses to help solve the world''s energy transition challenges.
+  Its software arm, GE Vernova Electrification Software (the former GE Digital), is where its API surface
+  lives: Proficy industrial software — Historian, Plant Applications MES, Operations Hub, CSense, iFIX
+  and CIMPLICITY — alongside Asset Performance Management (Meridium, SmartSignal) and GridOS for grid
+  transmission, distribution and orchestration. Every one of those APIs is documented publicly and runs
+  on infrastructure the customer operates, so each base URL is templated on the customer''s own host rather
+  than a vendor-hosted endpoint.'
 type: Index
 deliveryModel:
   model: self-hosted
@@ -41,225 +39,218 @@ access: 3rd-Party
 position: Producing
 created: '2026-03-21'
 modified: '2026-09-12'
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/ge-vernova/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/ge-vernova/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 tags:
-  - Decarbonization
-  - Electrification
-  - Energy
-  - Fortune 500
-  - Power
-  - Renewable Energy
-  - Sustainability
-  - Industrial
-  - Asset Performance Management
-  - Manufacturing Execution Systems
-  - Historian
-  - Grid
+- Decarbonization
+- Electrification
+- Energy
+- Fortune 500
+- Power
+- Renewable Energy
+- Sustainability
+- Industrial
+- Asset Performance Management
+- Manufacturing Execution Systems
+- Historian
+- Grid
 apis:
-  - aid: ge-vernova-proficy-historian-rest-api
-    name: Proficy Historian REST API
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
-    description: >-
-      Manage Proficy Historian systems, collectors, collector instances, data stores, tags, the
-      Historian model and alarms and events, and query time-series tag samples with a choice of
-      sampling, calculation and filter modes. REST constrained by HATEOAS, JSON responses, OAuth2
-      bearer tokens issued by Proficy Authentication. Runs on the customer's own Historian
-      web-based-client host; a Swagger UI is served from the same installation.
-      No machine-readable contract is published by GE Vernova.
-    humanURL: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html
-    baseURL: https://{historian-web-client-host}/historian-rest-api/v1
-    tags:
-      - Historian
-      - Time Series
-      - Industrial
-      - Energy
-    properties:
-      - type: Documentation
-        url: https://www.gevernova.com/software/documentation/historian/version2025/index.html
-      - type: APIReference
-        url: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html
-      - type: Authentication
-        url: https://www.gevernova.com/software/documentation/historian/version2025/t_historian_swagger_documentation.html
-      - type: Conventions
-        url: https://www.gevernova.com/software/documentation/historian/version2025/c_standards.html
-      - type: ErrorCatalog
-        url: errors/ge-vernova-error-codes.yml
-      - type: Console
-        url: https://www.gevernova.com/software/documentation/historian/version2025/t_historian_swagger_documentation.html
-  - aid: ge-vernova-proficy-plant-applications-rest-api
-    name: Proficy Plant Applications REST API
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
-    description: >-
-      The MES surface of Proficy Plant Applications, delivered as 37 documented microservices on
-      port 5059 of the Web Client host — activities, work orders, process orders, routes, downtime,
-      OEE and production metrics, non-conformance, e-signature, labor, waste, document management
-      and ERP import/export among them. Each service publishes its own Swagger UI on the
-      installation. ERP integration accepts and emits B2MML (ANSI-ISA-95) documents alongside JSON.
-    humanURL: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_rest_api_pa_introduction.html
-    baseURL: https://{plant-applications-web-client-host}:5059
-    tags:
-      - Manufacturing Execution Systems
-      - Industrial
-      - Work Orders
-      - ISA-95
-    properties:
-      - type: APIReference
-        url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_pa_rest_api_endpoints_documentation.html
-      - type: Console
-        url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_swagger_urls_of_rest_services_restapi.html
-      - type: EventTypes
-        url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/kafka/pa_webclient_Kafkaservices_topics.html
-      - type: ErrorCatalog
-        url: errors/ge-vernova-error-codes.yml
-  - aid: ge-vernova-proficy-operations-hub-rest-api
-    name: Proficy Operations Hub REST APIs
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
-    description: >-
-      Two REST surfaces on an Operations Hub installation. The integration APIs let a third-party
-      server authenticate, pull rows from the M2M_data entity, and read or insert rows in any
-      custom entity. The M2M device APIs let sensors and gateways log in, publish telemetry, and
-      subscribe for commands over plain REST POST with JSON payloads. Operations Hub also ships an
-      MQTT client with a defined topic namespace.
-    humanURL: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
-    baseURL: https://{operations-hub-site-url}/app/iqp/api/rest
-    tags:
-      - Industrial
-      - IoT
-      - Telemetry
-      - MQTT
-    properties:
-      - type: APIReference
-        url: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
-      - type: Documentation
-        url: https://www.gevernova.com/software/documentation/opshub/version2025/index.html
-      - type: EventTypes
-        url: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_mqtt_apis.html
-  - aid: ge-vernova-apm-data-extraction-odata-api
-    name: APM Data Extraction OData API
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
-    description: >-
-      An OData service hosted as part of the APM Web API, exposing APM families — assets, alerts,
-      cases, work orders — as entity collections for extraction into external reporting and
-      analytics tools. Supports $metadata, $count, $select, $filter, $top, $orderby, $expand and
-      $skip, server-driven pagination, and the standard OData string, math and date functions.
-      Requires a Meridium Core (Foundation) licence and a Predix UAA account; SSO credentials are
-      explicitly not accepted.
-    humanURL: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
-    baseURL: https://{apm-host}/meridium/api/odata
-    tags:
-      - Asset Performance Management
-      - OData
-      - Analytics
-      - Energy
-    properties:
-      - type: APIReference
-        url: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
-      - type: Authentication
-        url: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-authentication.html
-      - type: Deprecation
-        url: https://www.gevernova.com/software/documentation/cloud-apm/latest/api-notices-upcoming-api-deprecations.html
-      - type: ChangeLog
-        url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm.html
-common:
-  - type: Website
-    url: https://www.gevernova.com/
+- aid: ge-vernova:ge-vernova-proficy-historian-rest-api
+  name: Proficy Historian REST API
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
+  description: Manage Proficy Historian systems, collectors, collector instances, data stores, tags, the
+    Historian model and alarms and events, and query time-series tag samples with a choice of sampling,
+    calculation and filter modes. REST constrained by HATEOAS, JSON responses, OAuth2 bearer tokens issued
+    by Proficy Authentication. Runs on the customer's own Historian web-based-client host; a Swagger UI
+    is served from the same installation. No machine-readable contract is published by GE Vernova.
+  humanURL: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html
+  baseURL: https://{historian-web-client-host}/historian-rest-api/v1
+  tags:
+  - Historian
+  - Time Series
+  - Industrial
+  - Energy
+  properties:
   - type: Documentation
-    url: https://www.gevernova.com/software/product-documentation
+    url: https://www.gevernova.com/software/documentation/historian/version2025/index.html
   - type: APIReference
     url: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html
-  - type: GettingStarted
-    url: https://www.gevernova.com/software/documentation/quickstart/default/index.html
-  - type: Support
-    url: https://www.gevernova.com/software/technical-support
-  - type: HelpCenter
-    url: https://softwaresupport.gevernova.com/
-  - type: Blog
-    url: https://www.gevernova.com/software/blog
   - type: Authentication
-    url: authentication/ge-vernova-authentication.yml
-  - type: OAuthScopes
-    url: scopes/ge-vernova-scopes.yml
+    url: https://www.gevernova.com/software/documentation/historian/version2025/t_historian_swagger_documentation.html
   - type: Conventions
-    url: conventions/ge-vernova-conventions.yml
+    url: https://www.gevernova.com/software/documentation/historian/version2025/c_standards.html
   - type: ErrorCatalog
     url: errors/ge-vernova-error-codes.yml
-  - type: Lifecycle
-    url: lifecycle/ge-vernova-lifecycle.yml
+  - type: Console
+    url: https://www.gevernova.com/software/documentation/historian/version2025/t_historian_swagger_documentation.html
+- aid: ge-vernova:ge-vernova-proficy-plant-applications-rest-api
+  name: Proficy Plant Applications REST API
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
+  description: The MES surface of Proficy Plant Applications, delivered as 37 documented microservices
+    on port 5059 of the Web Client host — activities, work orders, process orders, routes, downtime, OEE
+    and production metrics, non-conformance, e-signature, labor, waste, document management and ERP import/export
+    among them. Each service publishes its own Swagger UI on the installation. ERP integration accepts
+    and emits B2MML (ANSI-ISA-95) documents alongside JSON.
+  humanURL: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_rest_api_pa_introduction.html
+  baseURL: https://{plant-applications-web-client-host}:5059
+  tags:
+  - Manufacturing Execution Systems
+  - Industrial
+  - Work Orders
+  - ISA-95
+  properties:
+  - type: APIReference
+    url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_pa_rest_api_endpoints_documentation.html
+  - type: Console
+    url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/pa_rest_api/c_swagger_urls_of_rest_services_restapi.html
+  - type: EventTypes
+    url: https://www.gevernova.com/software/documentation/proficy-plant-applications/version2025/kafka/pa_webclient_Kafkaservices_topics.html
+  - type: ErrorCatalog
+    url: errors/ge-vernova-error-codes.yml
+- aid: ge-vernova:ge-vernova-proficy-operations-hub-rest-api
+  name: Proficy Operations Hub REST APIs
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
+  description: Two REST surfaces on an Operations Hub installation. The integration APIs let a third-party
+    server authenticate, pull rows from the M2M_data entity, and read or insert rows in any custom entity.
+    The M2M device APIs let sensors and gateways log in, publish telemetry, and subscribe for commands
+    over plain REST POST with JSON payloads. Operations Hub also ships an MQTT client with a defined topic
+    namespace.
+  humanURL: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
+  baseURL: https://{operations-hub-site-url}/app/iqp/api/rest
+  tags:
+  - Industrial
+  - IoT
+  - Telemetry
+  - MQTT
+  properties:
+  - type: APIReference
+    url: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_rest_integration_apis.html
+  - type: Documentation
+    url: https://www.gevernova.com/software/documentation/opshub/version2025/index.html
+  - type: EventTypes
+    url: https://www.gevernova.com/software/documentation/opshub/version2025/windows/r_mqtt_apis.html
+- aid: ge-vernova:ge-vernova-apm-data-extraction-odata-api
+  name: APM Data Extraction OData API
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ge-vernova.png
+  description: An OData service hosted as part of the APM Web API, exposing APM families — assets, alerts,
+    cases, work orders — as entity collections for extraction into external reporting and analytics tools.
+    Supports $metadata, $count, $select, $filter, $top, $orderby, $expand and $skip, server-driven pagination,
+    and the standard OData string, math and date functions. Requires a Meridium Core (Foundation) licence
+    and a Predix UAA account; SSO credentials are explicitly not accepted.
+  humanURL: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
+  baseURL: https://{apm-host}/meridium/api/odata
+  tags:
+  - Asset Performance Management
+  - OData
+  - Analytics
+  - Energy
+  properties:
+  - type: APIReference
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-supported-features.html
+  - type: Authentication
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/ade-authentication.html
   - type: Deprecation
     url: https://www.gevernova.com/software/documentation/cloud-apm/latest/api-notices-upcoming-api-deprecations.html
   - type: ChangeLog
-    url: changelog/ge-vernova-changelog.yml
-  - type: EventTypes
-    url: asyncapi/ge-vernova-event-surface.yml
-  - type: Sandbox
-    url: sandbox/ge-vernova-sandbox.yml
-  - type: Plans
-    url: plans/ge-vernova-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/ge-vernova-rate-limits.yml
-  - type: Packages
-    url: packages/ge-vernova-packages.yml
-  - type: Conformance
-    url: conformance/ge-vernova-conformance.yml
-  - type: Compliance
-    url: https://www.gevernova.com/software/cybersecurity
-  - type: TrustCenter
-    url: https://trust.gevernova.com/
-  - type: WellKnown
-    url: well-known/ge-vernova-well-known.yml
-  - type: LLMsTxt
-    url: llms/ge-vernova-llms.txt
-  - type: X-MCPServerCandidate
-    url: mcp/ge-vernova-mcp.yml
-  - type: Security
-    url: https://www.gevernova.com/security
-  - type: VulnerabilityDisclosure
-    url: security/ge-vernova-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/ge-vernova-domain-security.yml
-  - type: Education
-    url: https://www.gevernova.com/software/education-services
-  - type: Resources
-    url: https://www.gevernova.com/software/resources
-  - type: Products
-    url: https://www.gevernova.com/software/products
-  - type: AboutUs
-    url: https://www.gevernova.com/company/about
-  - type: Leadership
-    url: https://www.gevernova.com/company/leadership
-  - type: Investors
-    url: https://www.gevernova.com/investors
-  - type: Sustainability
-    url: https://www.gevernova.com/sustainability
-  - type: News
-    url: https://www.gevernova.com/news
-  - type: PressReleases
-    url: https://www.gevernova.com/news/media-hub
-  - type: Careers
-    url: https://careers.gevernova.com
-  - type: Contact
-    url: https://www.gevernova.com/contact
-  - type: TermsOfService
-    url: https://www.gevernova.com/terms
-  - type: PrivacyPolicy
-    url: https://www.gevernova.com/privacy
-  - type: Accessibility
-    url: https://www.gevernova.com/accessibility
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/gevernova
-  - type: X
-    url: https://x.com/gevernova
-  - type: Instagram
-    url: https://www.instagram.com/gevernova
-  - type: YouTube
-    url: https://www.youtube.com/@gevernova
-  - type: Facebook
-    url: https://www.facebook.com/gevernova
+    url: https://www.gevernova.com/software/documentation/cloud-apm/latest/whats-new-in-apm.html
+common:
+- type: Website
+  url: https://www.gevernova.com/
+- type: Documentation
+  url: https://www.gevernova.com/software/product-documentation
+- type: APIReference
+  url: https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html
+- type: GettingStarted
+  url: https://www.gevernova.com/software/documentation/quickstart/default/index.html
+- type: Support
+  url: https://www.gevernova.com/software/technical-support
+- type: HelpCenter
+  url: https://softwaresupport.gevernova.com/
+- type: Blog
+  url: https://www.gevernova.com/software/blog
+- type: Authentication
+  url: authentication/ge-vernova-authentication.yml
+- type: OAuthScopes
+  url: scopes/ge-vernova-scopes.yml
+- type: Conventions
+  url: conventions/ge-vernova-conventions.yml
+- type: ErrorCatalog
+  url: errors/ge-vernova-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/ge-vernova-lifecycle.yml
+- type: Deprecation
+  url: https://www.gevernova.com/software/documentation/cloud-apm/latest/api-notices-upcoming-api-deprecations.html
+- type: ChangeLog
+  url: changelog/ge-vernova-changelog.yml
+- type: EventTypes
+  url: asyncapi/ge-vernova-event-surface.yml
+- type: Sandbox
+  url: sandbox/ge-vernova-sandbox.yml
+- type: Plans
+  url: plans/ge-vernova-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/ge-vernova-rate-limits.yml
+- type: Packages
+  url: packages/ge-vernova-packages.yml
+- type: Conformance
+  url: conformance/ge-vernova-conformance.yml
+- type: Compliance
+  url: https://www.gevernova.com/software/cybersecurity
+- type: TrustCenter
+  url: https://trust.gevernova.com/
+- type: WellKnown
+  url: well-known/ge-vernova-well-known.yml
+- type: LLMsTxt
+  url: llms/ge-vernova-llms.txt
+- type: X-MCPServerCandidate
+  url: mcp/ge-vernova-mcp.yml
+- type: Security
+  url: https://www.gevernova.com/security
+- type: VulnerabilityDisclosure
+  url: security/ge-vernova-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/ge-vernova-domain-security.yml
+- type: Education
+  url: https://www.gevernova.com/software/education-services
+- type: Resources
+  url: https://www.gevernova.com/software/resources
+- type: Products
+  url: https://www.gevernova.com/software/products
+- type: AboutUs
+  url: https://www.gevernova.com/company/about
+- type: Leadership
+  url: https://www.gevernova.com/company/leadership
+- type: Investors
+  url: https://www.gevernova.com/investors
+- type: Sustainability
+  url: https://www.gevernova.com/sustainability
+- type: News
+  url: https://www.gevernova.com/news
+- type: PressReleases
+  url: https://www.gevernova.com/news/media-hub
+- type: Careers
+  url: https://careers.gevernova.com
+- type: Contact
+  url: https://www.gevernova.com/contact
+- type: TermsOfService
+  url: https://www.gevernova.com/terms
+- type: PrivacyPolicy
+  url: https://www.gevernova.com/privacy
+- type: Accessibility
+  url: https://www.gevernova.com/accessibility
+- type: LinkedIn
+  url: https://www.linkedin.com/company/gevernova
+- type: X
+  url: https://x.com/gevernova
+- type: Instagram
+  url: https://www.instagram.com/gevernova
+- type: YouTube
+  url: https://www.youtube.com/@gevernova
+- type: Facebook
+  url: https://www.facebook.com/gevernova
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 x-enrichment:
   date: '2026-09-12'
   status: enriched
