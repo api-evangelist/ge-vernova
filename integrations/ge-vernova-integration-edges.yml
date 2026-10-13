@@ -1,0 +1,25 @@
+generated: '2026-10-13'
+method: searched
+checked:
+- https://aws.amazon.com/marketplace/
+marketplace_apps: []
+edges:
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=seller-okfx4grmsdlhu
+  listing_count: 8
+  apps:
+  - GridOS® Visual Intelligence
+  - Smallworld Network Inventory for Telecom
+  - Smallworld Geo Network Management for Electric
+  - GridOS® Digital Dynamic Line Rating (DDLR)
+  - GridOS® Storm Manager
+  seller_name: GE Vernova
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
