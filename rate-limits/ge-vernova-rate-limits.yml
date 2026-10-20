@@ -1,6 +1,7 @@
 generated: '2026-09-12'
 method: searched
 source: https://www.gevernova.com/software/documentation/historian/version2025/c_api_status_messages.html
+name: GE Vernova API Rate Limits
 limit_count: 0
 note: >-
   No published rate limits, quotas, throttling policy, or rate-limit response headers were found for

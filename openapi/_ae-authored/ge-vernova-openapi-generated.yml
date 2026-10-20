@@ -1,0 +1,843 @@
+openapi: 3.1.0
+info:
+  title: GE Vernova API
+  version: '2026-10-20'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-20: 23 operation(s) read from 8 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; GE Vernova has published no machine-readable contract that the
+    pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 10
+    documentation: 13
+    pages-with-code: 8
+    pages-read: 8
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-20'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://www.gevernova.com/software/documentation/historian/version2025/c_about_this_book.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/r_managing_systems_apis.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collector_instances_apis.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collectors_apis.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/r_managing_data_stores_apis.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/r_managing_tags_apis.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/r_managing_alarms_and_events_apis.html
+  - https://www.gevernova.com/software/documentation/historian/version2025/c_about_security_and_authentication.html
+paths:
+  /:
+    delete:
+      operationId: delete
+      tags:
+      - Api
+      summary: DELETE /
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_systems_apis.html
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Content-Type: application/json\"\n-H \"Authorization: Bearer <TOKEN>” -d “{\
+          \ \\”nodeName \\”:\\”name\\”}” -X DELETE https://<historianservername>/historian-rest-api/v1/machine \n Table 12 . Query Parameters\
+          \ \n Parameter \n Description \n Required? \n Values \n Payload \n Contains the name of the machine that you want to\n remove. \n Yes\
+          \ \n Multiple \n Table 13 . Response "
+    get:
+      operationId: get
+      tags:
+      - Api
+      summary: GET /
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/c_about_this_book.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -u admin:adminsecret https://<nodename>:443/uaa/oauth/token -d\n 'grant_type=client_credentials' should be replaced with"
+    post:
+      operationId: post
+      tags:
+      - Api
+      summary: POST /
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_systems_apis.html
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Content-Type: application/json\" -H \"Authorization: Bearer <TOKEN>” \n-d “{\
+          \ \\”nodeName \\”:\\”name\\”}” -X POST https://<historianservername>/historian-rest-api/v1/machine \n Table 10 . Query Parameters \n\
+          \ Parameter \n Description \n Required? \n Values \n Payload \n Contains the machine name of the server that you want\n to add. \n Yes\
+          \ \n Multiple \n Table 11 . Respon"
+    put:
+      operationId: put
+      tags:
+      - Api
+      summary: PUT /
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_systems_apis.html
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Content-Type: application/json\" -H \"Authorization: Bearer <TOKEN>” \n-d “{\
+          \ \\”mirrorStorageName \\”:\\”name\\”,\\\" mirrorStorageNewName \\\": \\\"sname\\\"}” -X PUT https://<historianservername>/historian-rest-api/v1/mirrorgroup\
+          \ \n Table 18 . Query Parameters \n Parameter \n Description \n Required? \n Values \n Payload \n Contains the existing and new names\
+          \ of the mirror"
+  /datastore:
+    delete:
+      operationId: delete_datastore
+      tags:
+      - Datastore
+      summary: Using the Delete Data Store API, you can delete a data store.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_data_stores_apis.html
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteDatastoreResponse'
+      x-evidence:
+        kind: documentation
+  /datastores:
+    get:
+      operationId: get_datastores
+      tags:
+      - Datastores
+      summary: Using the Get Data Stores API, you can view the list of data stores in a system.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_data_stores_apis.html
+      parameters:
+      - name: dataStoreMask
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The value of the data store mask.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetDatastoresResponse'
+      x-evidence:
+        kind: documentation
+  /datastoretostorage:
+    post:
+      operationId: post_datastoretostorage
+      tags:
+      - Datastoretostorage
+      summary: Using the Add Datastore API, you can create a data store in a Historian server.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_data_stores_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostDatastoretostorageRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostDatastoretostorageResponse'
+      x-evidence:
+        kind: documentation
+  /historian-rest-api/v1/alarms/backup:
+    put:
+      operationId: put_historian_rest_api_v1_alarms_backup
+      tags:
+      - Historian Rest Api
+      summary: PUT /historian-rest-api/v1/alarms/backup
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_alarms_and_events_apis.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Con tent-Type: application/json\" -H \"Authorization: Bearer ” -d “{\n\\\"BackupFileName\\\
+          \":\\\"C:\\\\Proficy Historian Data\\\\Archives\\\\abc.zip\\\",\n\\\"StartTime\\\":\\\"2022-09-21T5:58:00.000Z\\\",\n \\\"EndTime\\\"\
+          :\\\"2022-09-21T6:58:00.000Z\\\"\n}” -X PUT https://:443/historian-rest-api/v1/alarms/backup \n Table 7 . Query Parameters \n Parameter\
+          \ \n Description \n Required? \n Values"
+  /historian-rest-api/v1/alarms/create:
+    put:
+      operationId: put_historian_rest_api_v1_alarms_create
+      tags:
+      - Historian Rest Api
+      summary: PUT /historian-rest-api/v1/alarms/create
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_alarms_and_events_apis.html
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutHistorianRestApiV1AlarmsCreateResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Content-Type: application/json\" -H \"Authorization: Bearer ” -d “{\n \\\"DataSource\\\
+          \":\\\"Simulation\\\",\n \\”AlarmsInfo\\”:[\n {\n \\”ItemId\\”:\\”GF7DQL63E_Simulation.Simulation00001\\”,\n \\”Source\\”:\\”Simulation\\\
+          ”, \n \\”DataSourceName\\”:\\”Simulation\\”,\n \\”Tagname\\”:\\”GF7DQL63E_Simulation.Simulation00001\\”,\n \\”AlarmType\\”:4,\n \\”EventCategory\\\
+          ”:\\”SimCategory\\”,\n \\”Condi"
+  /historian-rest-api/v1/alarms/delete:
+    put:
+      operationId: put_historian_rest_api_v1_alarms_delete
+      tags:
+      - Historian Rest Api
+      summary: PUT /historian-rest-api/v1/alarms/delete
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_alarms_and_events_apis.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Con tent-Type: application/json\" -H \"Authorization: Bearer ” -d “{\n\\\"StartTime\\\
+          \":\\\"2022-09-21T5:58:00.000Z\\\",\n \\\"EndTime\\\":\\\"2022-09-21T6:58:00.000Z\\\"\n}” -X PUT https://:443/historian-rest-api/v1/alarms/delete\
+          \ \n Table 5 . Query Parameters \n Parameter \n Description \n Required? \n Values \n StartTime \n The start time or time stamp of the\
+          \ alarm or\n event. \n "
+  /historian-rest-api/v1/alarms/query:
+    put:
+      operationId: put_historian_rest_api_v1_alarms_query
+      tags:
+      - Historian Rest Api
+      summary: PUT /historian-rest-api/v1/alarms/query
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_alarms_and_events_apis.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Con tent-Type: application/json\" -H \"Authorization: Bearer ” -d “{\n \\”AlarmType\\\
+          ”:\\”4\\”,\n \\”StartTime\\”:\\”2022-10-30T3:30:00.000Z\\”,\n \\”EndTime\\”:\\”2022-10-31T4:30:00.000Z\\”,\n \\”DataSourceName\\”:\\\
+          ”GF7DQL63E_Simulation\\”,\n \\”MaxRecords\\”:50\n}\n” -X PUT https://:443/historian-rest-api/v1/alarms/query \n Table 3 . Query Parameters\
+          \ \n Parameter \n Description \n"
+  /historian-rest-api/v1/alarms/restore:
+    post:
+      operationId: post_historian_rest_api_v1_alarms_restore
+      tags:
+      - Historian Rest Api
+      summary: Restore alarms that have been backed up previously to make them available for query and analysis.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_alarms_and_events_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostHistorianRestApiV1AlarmsRestoreRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostHistorianRestApiV1AlarmsRestoreResponse'
+      x-evidence:
+        kind: documentation
+    put:
+      operationId: put_historian_rest_api_v1_alarms_restore
+      tags:
+      - Historian Rest Api
+      summary: PUT /historian-rest-api/v1/alarms/restore
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_alarms_and_events_apis.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Con tent-Type: application/json\" -H \"Authorization: Bearer ” -d “C:\\\\Proficy\
+          \ Historian Data\\\\Archives\\\\abc.zip” -X PUT https://:443/historian-rest-api/v1/alarms/restore \n Table 9 . Query Parameters \n Parameter\
+          \ \n Description \n Required? \n Values \n C:\\\\Proficy Historian\n Data\\\\Archives\\\\abc.zip \n Path of the restore file. \n Yes\
+          \ \n C:\\\\Proficy Historian Dat"
+  /historian-rest-api/v1/collector/azureloglevel:
+    put:
+      operationId: put_historian_rest_api_v1_collector_azureloglevel
+      tags:
+      - Historian Rest Api
+      summary: Set the debug information log level for destination - Azure IoT Hub.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collector_instances_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutHistorianRestApiV1CollectorAzureloglevelRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutHistorianRestApiV1CollectorAzureloglevelResponse'
+      x-evidence:
+        kind: documentation
+  /historian-rest-api/v1/collector/createnewinstance:
+    post:
+      operationId: post_historian_rest_api_v1_collector_createnewinstance
+      tags:
+      - Historian Rest Api
+      summary: Create a collector instance.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collector_instances_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostHistorianRestApiV1CollectorCreatenewinstanceRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostHistorianRestApiV1CollectorCreatenewinstanceResponse'
+      x-evidence:
+        kind: documentation
+  /historian-rest-api/v1/collector/deleteinstance:
+    put:
+      operationId: put_historian_rest_api_v1_collector_deleteinstance
+      tags:
+      - Historian Rest Api
+      summary: Delete a collector instance.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collector_instances_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutHistorianRestApiV1CollectorDeleteinstanceRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutHistorianRestApiV1CollectorDeleteinstanceResponse'
+      x-evidence:
+        kind: documentation
+  /historian-rest-api/v1/collector/editInstance:
+    put:
+      operationId: put_historian_rest_api_v1_collector_editInstance
+      tags:
+      - Historian Rest Api
+      summary: Modify the cloud parameters of a collector instance.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collector_instances_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutHistorianRestApiV1CollectorEditinstanceRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutHistorianRestApiV1CollectorEditinstanceResponse'
+      x-evidence:
+        kind: documentation
+  /historian-rest-api/v1/collector/messagecompression:
+    put:
+      operationId: put_historian_rest_api_v1_collector_messagecompression
+      tags:
+      - Historian Rest Api
+      summary: Enable or disable message compression.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collector_instances_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutHistorianRestApiV1CollectorMessagecompressionRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutHistorianRestApiV1CollectorMessagecompressionResponse'
+      x-evidence:
+        kind: documentation
+  /historian-rest-api/v1/collector/version/RSSERVER2012-02_Simulation:
+    get:
+      operationId: get_historian_rest_api_v1_collector_version_RSSERVER2012_02_Simulation
+      tags:
+      - Historian Rest Api
+      summary: Using the Get Collector Version API, you can view the version number of a collector.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collectors_apis.html
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio'
+      x-evidence:
+        kind: documentation
+  /historian-rest-api/v1/tags/addcomment:
+    post:
+      operationId: post_historian_rest_api_v1_tags_addcomment
+      tags:
+      - Historian Rest Api
+      summary: Using the Add Tag Comment API, you can add a comment to a tag.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collectors_apis.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostHistorianRestApiV1TagsAddcommentRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostHistorianRestApiV1TagsAddcommentResponse'
+      x-evidence:
+        kind: documentation
+  /oauth/token:
+    put:
+      operationId: put_oauth_token
+      tags:
+      - Oauth
+      summary: PUT /oauth/token
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_collector_instances_apis.html
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutOauthTokenResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i -H \"Accept: application/json\" -i -H \"Content-Type: application/json\" \n-H \"Authorization: Bearer <TOKEN>” -d “{\\\
+          \"InterfaceName\\\":\\\" <source server> _ <type of the collector> _ <destination server> \\\",\n\\\"InterfaceName\\\":\\\" <source\
+          \ server> _ <type of the collector> _ <destination server> \\\",\\\"messageCompression\\\":0,\\\"azureLogLevel\\\":1,\n\\\"debugMode\\\
+          \":0,\\\"CollectorDestination\\\":\\\"Predix\\\",\\\"Des"
+  /storage/datastores:
+    get:
+      operationId: get_storage_datastores
+      tags:
+      - Storage
+      summary: Using the Get Data Stores of Storage API, you can view the list of data stores in a location.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/r_managing_data_stores_apis.html
+      parameters:
+      - name: storageName
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The name of the location whose data stores you want to view.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetStorageDatastoresResponse'
+      x-evidence:
+        kind: documentation
+  /uaa/oauth/token:
+    get:
+      operationId: get_uaa_oauth_token
+      tags:
+      - Uaa
+      summary: Obtain an OAuth token for authentication using client credentials.
+      x-source: https://www.gevernova.com/software/documentation/historian/version2025/c_about_this_book.html
+      parameters:
+      - name: grant_type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The grant type for the OAuth request, typically 'client_credentials'
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    DeleteResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type:
+          - string
+          - 'null'
+    PostResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type:
+          - string
+          - 'null'
+    PutResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type:
+          - string
+          - 'null'
+    DeleteDatastoreResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+          description: For example, ErrorCode = 0 implies the operation was successful.
+        ErrorMessage:
+          type: string
+          description: For example, NULL.
+    GetDatastoresResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+          description: For example, ErrorCode = 0 implies the operation was successful.
+        ErrorMessage:
+          type: string
+          description: For example, NULL.
+    PostDatastoretostorageRequest:
+      type: object
+      properties:
+        dataStoreName:
+          type: string
+        storageName:
+          type: string
+        description:
+          type: string
+        isDefault:
+          type: boolean
+      required:
+      - dataStoreName
+      - storageName
+    PostDatastoretostorageResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+          description: For example, ErrorCode = 0 implies the operation was successful.
+        ErrorMessage:
+          type: string
+          description: For example, NULL.
+    PutHistorianRestApiV1AlarmsCreateResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type:
+          - string
+          - 'null'
+        Data:
+          type: array
+          items:
+            type: object
+            properties:
+              Description:
+                type: string
+              Source:
+                type: string
+              Start Time:
+                type: string
+                format: date-time
+              End Time:
+                type: string
+                format: date-time
+              Condition:
+                type: string
+              Sub Condition:
+                type: string
+              Event Category:
+                type: string
+              Severity:
+                type: integer
+              Modified Time:
+                type: string
+                format: date-time
+              Quality:
+                type: integer
+    PostHistorianRestApiV1AlarmsRestoreRequest:
+      type: object
+      properties:
+        backup_file_path:
+          type: string
+          description: Path of the restore file
+      required:
+      - backup_file_path
+    PostHistorianRestApiV1AlarmsRestoreResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+          description: For example, 10 invalid parameter
+        ErrorMessage:
+          type: string
+          description: For example, NULL
+    PutHistorianRestApiV1CollectorAzureloglevelRequest:
+      type: object
+      properties:
+        InterfaceName:
+          type: string
+        azureLogLevel:
+          type: integer
+      required:
+      - InterfaceName
+      - azureLogLevel
+    PutHistorianRestApiV1CollectorAzureloglevelResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type: string
+    PostHistorianRestApiV1CollectorCreatenewinstanceRequest:
+      type: object
+      properties:
+        mode:
+          type: integer
+        CollectorSystemName:
+          type: string
+        InterfaceDescription:
+          type: string
+        DataPathDirectory:
+          type: string
+        CollectorDestination:
+          type: string
+        winUserName:
+          type: string
+        winPassword:
+          type: string
+        InterfaceSubType:
+          type: string
+        DestinationHistorianUserName:
+          type: string
+        DestinationHistorianPassword:
+          type: string
+        DestinationHistorian:
+          type: string
+        General1:
+          type: string
+        General2:
+          type: string
+        General3:
+          type: string
+        General4:
+          type: string
+        General5:
+          type: string
+        Type:
+          type: integer
+        InterfaceName:
+          type: string
+      required:
+      - mode
+      - CollectorSystemName
+      - InterfaceDescription
+      - DataPathDirectory
+      - CollectorDestination
+      - DestinationHistorianUserName
+      - DestinationHistorianPassword
+      - Type
+      - InterfaceName
+    PostHistorianRestApiV1CollectorCreatenewinstanceResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type: string
+    PutHistorianRestApiV1CollectorDeleteinstanceRequest:
+      type: object
+      properties:
+        InterfaceName:
+          type: string
+        deleteTags:
+          type: boolean
+      required:
+      - InterfaceName
+      - deleteTags
+    PutHistorianRestApiV1CollectorDeleteinstanceResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type: string
+    PutHistorianRestApiV1CollectorEditinstanceRequest:
+      type: object
+      properties:
+        InterfaceName:
+          type: string
+        messageCompression:
+          type: integer
+        azureLogLevel:
+          type: integer
+        debugMode:
+          type: integer
+        CollectorDestination:
+          type: string
+        DestinationHistorian:
+          type: string
+        mode:
+          type: integer
+        CloudDestinationAddress:
+          type: string
+        IdentityIssuer:
+          type: string
+        ClientID:
+          type: string
+        ClientSecret:
+          type: string
+        ZoneID:
+          type: string
+        Proxy:
+          type: string
+        ProxyUserName:
+          type: string
+        ProxyPassword:
+          type: string
+        DatapointAttribute1:
+          type: string
+        DatapointAttribute2:
+          type: string
+        DatapointAttribute3:
+          type: string
+        DatapointAttribute4:
+          type: string
+      required:
+      - InterfaceName
+    PutHistorianRestApiV1CollectorEditinstanceResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type: string
+    PutHistorianRestApiV1CollectorMessagecompressionRequest:
+      type: object
+      properties:
+        InterfaceName:
+          type: string
+        messageCompression:
+          type: integer
+      required:
+      - InterfaceName
+      - messageCompression
+    PutHistorianRestApiV1CollectorMessagecompressionResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type: string
+    GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+          description: For example, ErrorCode = 0 implies the operation was successful.
+        ErrorMessage:
+          type: string
+          description: For example, NULL.
+        Data:
+          type: string
+          description: Returns the version of the collector.
+    PostHistorianRestApiV1TagsAddcommentRequest:
+      type: object
+      properties:
+        tagName:
+          type: string
+          description: The name of the tag.
+        comment:
+          type: string
+          description: The comment.
+        timeStamp:
+          type: string
+          description: The timestamp of the comment.
+      required:
+      - tagName
+      - comment
+      - timeStamp
+    PostHistorianRestApiV1TagsAddcommentResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+          description: For example, ErrorCode = 0 implies the operation was successful.
+        ErrorMessage:
+          type: string
+          description: For example, NULL.
+        Data:
+          type: string
+    PutOauthTokenResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        ErrorMessage:
+          type:
+          - string
+          - 'null'
+    GetStorageDatastoresResponse:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+          description: For example, ErrorCode = 0 implies the operation was successful.
+        ErrorMessage:
+          type: string
+          description: For example, NULL.
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+- bearer: []
+tags:
+- name: Api
+- name: Datastore
+- name: Datastores
+- name: Datastoretostorage
+- name: Historian Rest Api
+- name: Oauth
+- name: Storage
+- name: Uaa
+servers:
+- url: https://{historian-web-client-host}
+  description: Customer-operated Proficy Historian web-based-client host (templated; the docs give no vendor-hosted base).
+  variables:
+    historian-web-client-host:
+      default: historian.example.local

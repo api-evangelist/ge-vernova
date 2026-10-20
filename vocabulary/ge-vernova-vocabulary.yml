@@ -1,0 +1,181 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+vocabulary:
+  name: GE Vernova Domain Vocabulary
+  description: 'Terms declared by GE Vernova''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-20'
+  terms:
+  - term: DeleteResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/DeleteResponse
+  - term: PostResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostResponse
+  - term: PutResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutResponse
+  - term: DeleteDatastoreResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/DeleteDatastoreResponse
+  - term: GetDatastoresResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/GetDatastoresResponse
+  - term: PostDatastoretostorageRequest
+    definition: 'Object declared by the contract with fields: dataStoreName, storageName, description, isDefault.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostDatastoretostorageRequest
+  - term: PostDatastoretostorageResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostDatastoretostorageResponse
+  - term: PutHistorianRestApiV1AlarmsCreateResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage, Data.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1AlarmsCreateResponse
+  - term: PostHistorianRestApiV1AlarmsRestoreRequest
+    definition: 'Object declared by the contract with fields: backup_file_path.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostHistorianRestApiV1AlarmsRestoreRequest
+  - term: PostHistorianRestApiV1AlarmsRestoreResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostHistorianRestApiV1AlarmsRestoreResponse
+  - term: PutHistorianRestApiV1CollectorAzureloglevelRequest
+    definition: 'Object declared by the contract with fields: InterfaceName, azureLogLevel.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorAzureloglevelRequest
+  - term: PutHistorianRestApiV1CollectorAzureloglevelResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorAzureloglevelResponse
+  - term: PostHistorianRestApiV1CollectorCreatenewinstanceRequest
+    definition: 'Object declared by the contract with fields: mode, CollectorSystemName, InterfaceDescription, DataPathDirectory, CollectorDestination,
+      winUserName, winPassword, InterfaceSubType, DestinationHistorianUserName, DestinationHistorianPassword, DestinationHistorian, General1.
+      (6 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostHistorianRestApiV1CollectorCreatenewinstanceRequest
+  - term: PostHistorianRestApiV1CollectorCreatenewinstanceResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostHistorianRestApiV1CollectorCreatenewinstanceResponse
+  - term: PutHistorianRestApiV1CollectorDeleteinstanceRequest
+    definition: 'Object declared by the contract with fields: InterfaceName, deleteTags.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorDeleteinstanceRequest
+  - term: PutHistorianRestApiV1CollectorDeleteinstanceResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorDeleteinstanceResponse
+  - term: PutHistorianRestApiV1CollectorEditinstanceRequest
+    definition: 'Object declared by the contract with fields: InterfaceName, messageCompression, azureLogLevel, debugMode, CollectorDestination,
+      DestinationHistorian, mode, CloudDestinationAddress, IdentityIssuer, ClientID, ClientSecret, ZoneID. (7 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorEditinstanceRequest
+  - term: PutHistorianRestApiV1CollectorEditinstanceResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorEditinstanceResponse
+  - term: PutHistorianRestApiV1CollectorMessagecompressionRequest
+    definition: 'Object declared by the contract with fields: InterfaceName, messageCompression.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorMessagecompressionRequest
+  - term: PutHistorianRestApiV1CollectorMessagecompressionResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutHistorianRestApiV1CollectorMessagecompressionResponse
+  - term: GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage, Data.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio
+  - term: PostHistorianRestApiV1TagsAddcommentRequest
+    definition: 'Object declared by the contract with fields: tagName, comment, timeStamp.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostHistorianRestApiV1TagsAddcommentRequest
+  - term: PostHistorianRestApiV1TagsAddcommentResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage, Data.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostHistorianRestApiV1TagsAddcommentResponse
+  - term: PutOauthTokenResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PutOauthTokenResponse
+  - term: GetStorageDatastoresResponse
+    definition: 'Object declared by the contract with fields: ErrorCode, ErrorMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/GetStorageDatastoresResponse
+  - term: Api
+    definition: 'Resource group in the contract; its operation DELETE /: DELETE /'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+  - term: Datastore
+    definition: 'Resource group in the contract; its operation DELETE /datastore: Using the Delete Data Store API, you can delete a data store.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+  - term: Datastores
+    definition: 'Resource group in the contract; its operation GET /datastores: Using the Get Data Stores API, you can view the list of data stores
+      in a system.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+  - term: Datastoretostorage
+    definition: 'Resource group in the contract; its operation POST /datastoretostorage: Using the Add Datastore API, you can create a data store
+      in a Historian server.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+  - term: Historian Rest Api
+    definition: 'Resource group in the contract; its operation PUT /historian-rest-api/v1/alarms/backup: PUT /historian-rest-api/v1/alarms/backup'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+  - term: Oauth
+    definition: 'Resource group in the contract; its operation PUT /oauth/token: PUT /oauth/token'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+  - term: Storage
+    definition: 'Resource group in the contract; its operation GET /storage/datastores: Using the Get Data Stores of Storage API, you can view
+      the list of data stores in a location.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml
+  - term: Uaa
+    definition: 'Resource group in the contract; its operation GET /uaa/oauth/token: Obtain an OAuth token for authentication using client credentials.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/ge-vernova-openapi-generated.yml

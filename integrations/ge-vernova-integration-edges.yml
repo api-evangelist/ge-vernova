@@ -1,7 +1,17 @@
-generated: '2026-10-13'
+generated: '2026-10-20'
 method: searched
+source:
+- https://zapier.com/apps/ge-vernova/integrations
+- https://n8n.io/integrations/ge-vernova/
+- https://composio.dev/toolkits/ge-vernova
+- https://monid.ai/tools/ge-vernova
 checked:
 - https://aws.amazon.com/marketplace/
+- https://composio.dev/toolkits/ge-vernova
+- https://monid.ai/tools/ge-vernova
+- https://n8n.io/integrations/ge-vernova/
+- https://zapier.com/apps/ge-vernova/integrations
+summary: null
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -23,3 +33,4 @@ edges:
   seller_name: GE Vernova
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+templates: []

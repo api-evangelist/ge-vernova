@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ge-vernova/main/json-schema/ge-vernova-post-historian-rest-api-v1-collector-createnewinstance-request-schema.json",
+  "title": "PostHistorianRestApiV1CollectorCreatenewinstanceRequest",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/ge-vernova-openapi-generated.yml#/components/schemas/PostHistorianRestApiV1CollectorCreatenewinstanceRequest",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "integer"
+    },
+    "CollectorSystemName": {
+      "type": "string"
+    },
+    "InterfaceDescription": {
+      "type": "string"
+    },
+    "DataPathDirectory": {
+      "type": "string"
+    },
+    "CollectorDestination": {
+      "type": "string"
+    },
+    "winUserName": {
+      "type": "string"
+    },
+    "winPassword": {
+      "type": "string"
+    },
+    "InterfaceSubType": {
+      "type": "string"
+    },
+    "DestinationHistorianUserName": {
+      "type": "string"
+    },
+    "DestinationHistorianPassword": {
+      "type": "string"
+    },
+    "DestinationHistorian": {
+      "type": "string"
+    },
+    "General1": {
+      "type": "string"
+    },
+    "General2": {
+      "type": "string"
+    },
+    "General3": {
+      "type": "string"
+    },
+    "General4": {
+      "type": "string"
+    },
+    "General5": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "integer"
+    },
+    "InterfaceName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mode",
+    "CollectorSystemName",
+    "InterfaceDescription",
+    "DataPathDirectory",
+    "CollectorDestination",
+    "DestinationHistorianUserName",
+    "DestinationHistorianPassword",
+    "Type",
+    "InterfaceName"
+  ]
+}

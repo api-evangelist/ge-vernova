@@ -1,0 +1,154 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 11
+  own: 5
+  other_domain: 2
+  platform: 4
+  roles:
+  - api
+  - marketing
+  - other
+  - website
+hosts:
+- host: api.gevernova.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: gevernova.com
+  role: api
+  relation: own
+- host: api.instagram.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: instagram.com
+  role: api
+  relation: other-domain
+- host: careers.gevernova.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Careers
+  serves: []
+  registrable_domain: gevernova.com
+  role: marketing
+  relation: own
+- host: softwaresupport.gevernova.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - HelpCenter
+  serves: []
+  registrable_domain: gevernova.com
+  role: other
+  relation: own
+- host: trust.gevernova.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - TrustCenter
+  serves: []
+  registrable_domain: gevernova.com
+  role: other
+  relation: own
+- host: www.facebook.com
+  found_by:
+  - pointer
+  types:
+  - Facebook
+  serves: []
+  registrable_domain: facebook.com
+  role: other
+  relation: platform
+- host: www.gevernova.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - Documentation
+  - APIReference
+  - GettingStarted
+  - Support
+  - Blog
+  - Deprecation
+  - Compliance
+  - Security
+  - Education
+  - Resources
+  - Products
+  - AboutUs
+  - Leadership
+  - Investors
+  - Sustainability
+  - News
+  - PressReleases
+  - Contact
+  - TermsOfService
+  - PrivacyPolicy
+  - Accessibility
+  serves:
+  - docs
+  - cdn
+  vendor: akamai
+  registrable_domain: gevernova.com
+  role: website
+  relation: own
+- host: www.instagram.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Instagram
+  serves: []
+  registrable_domain: instagram.com
+  role: other
+  relation: other-domain
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.youtube.com
+  found_by:
+  - pointer
+  types:
+  - YouTube
+  serves: []
+  registrable_domain: youtube.com
+  role: other
+  relation: platform
+- host: x.com
+  found_by:
+  - pointer
+  types:
+  - X
+  serves: []
+  registrable_domain: x.com
+  role: other
+  relation: platform

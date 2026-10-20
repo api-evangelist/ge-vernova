@@ -1,0 +1,221 @@
+{
+  "@context": {
+    "@vocab": "https://gevernova.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ge": "https://gevernova.com/schema#",
+    "DeleteResponse": "ge:DeleteResponse",
+    "ErrorCode": {
+      "@id": "ge:ErrorCode",
+      "@type": "xsd:integer"
+    },
+    "ErrorMessage": {
+      "@id": "ge:ErrorMessage",
+      "@type": "xsd:string"
+    },
+    "PostResponse": "ge:PostResponse",
+    "PutResponse": "ge:PutResponse",
+    "DeleteDatastoreResponse": "ge:DeleteDatastoreResponse",
+    "GetDatastoresResponse": "ge:GetDatastoresResponse",
+    "PostDatastoretostorageRequest": "ge:PostDatastoretostorageRequest",
+    "dataStoreName": {
+      "@id": "ge:dataStoreName",
+      "@type": "xsd:string"
+    },
+    "storageName": {
+      "@id": "ge:storageName",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "ge:description",
+      "@type": "xsd:string"
+    },
+    "isDefault": {
+      "@id": "ge:isDefault",
+      "@type": "xsd:boolean"
+    },
+    "PostDatastoretostorageResponse": "ge:PostDatastoretostorageResponse",
+    "PutHistorianRestApiV1AlarmsCreateResponse": "ge:PutHistorianRestApiV1AlarmsCreateResponse",
+    "Data": {
+      "@id": "ge:Data",
+      "@container": "@list"
+    },
+    "PostHistorianRestApiV1AlarmsRestoreRequest": "ge:PostHistorianRestApiV1AlarmsRestoreRequest",
+    "backup_file_path": {
+      "@id": "ge:backup_file_path",
+      "@type": "xsd:string"
+    },
+    "PostHistorianRestApiV1AlarmsRestoreResponse": "ge:PostHistorianRestApiV1AlarmsRestoreResponse",
+    "PutHistorianRestApiV1CollectorAzureloglevelRequest": "ge:PutHistorianRestApiV1CollectorAzureloglevelRequest",
+    "InterfaceName": {
+      "@id": "ge:InterfaceName",
+      "@type": "xsd:string"
+    },
+    "azureLogLevel": {
+      "@id": "ge:azureLogLevel",
+      "@type": "xsd:integer"
+    },
+    "PutHistorianRestApiV1CollectorAzureloglevelResponse": "ge:PutHistorianRestApiV1CollectorAzureloglevelResponse",
+    "PostHistorianRestApiV1CollectorCreatenewinstanceRequest": "ge:PostHistorianRestApiV1CollectorCreatenewinstanceRequest",
+    "mode": {
+      "@id": "ge:mode",
+      "@type": "xsd:integer"
+    },
+    "CollectorSystemName": {
+      "@id": "ge:CollectorSystemName",
+      "@type": "xsd:string"
+    },
+    "InterfaceDescription": {
+      "@id": "ge:InterfaceDescription",
+      "@type": "xsd:string"
+    },
+    "DataPathDirectory": {
+      "@id": "ge:DataPathDirectory",
+      "@type": "xsd:string"
+    },
+    "CollectorDestination": {
+      "@id": "ge:CollectorDestination",
+      "@type": "xsd:string"
+    },
+    "winUserName": {
+      "@id": "ge:winUserName",
+      "@type": "xsd:string"
+    },
+    "winPassword": {
+      "@id": "ge:winPassword",
+      "@type": "xsd:string"
+    },
+    "InterfaceSubType": {
+      "@id": "ge:InterfaceSubType",
+      "@type": "xsd:string"
+    },
+    "DestinationHistorianUserName": {
+      "@id": "ge:DestinationHistorianUserName",
+      "@type": "xsd:string"
+    },
+    "DestinationHistorianPassword": {
+      "@id": "ge:DestinationHistorianPassword",
+      "@type": "xsd:string"
+    },
+    "DestinationHistorian": {
+      "@id": "ge:DestinationHistorian",
+      "@type": "xsd:string"
+    },
+    "General1": {
+      "@id": "ge:General1",
+      "@type": "xsd:string"
+    },
+    "General2": {
+      "@id": "ge:General2",
+      "@type": "xsd:string"
+    },
+    "General3": {
+      "@id": "ge:General3",
+      "@type": "xsd:string"
+    },
+    "General4": {
+      "@id": "ge:General4",
+      "@type": "xsd:string"
+    },
+    "General5": {
+      "@id": "ge:General5",
+      "@type": "xsd:string"
+    },
+    "Type": {
+      "@id": "ge:Type",
+      "@type": "xsd:integer"
+    },
+    "PostHistorianRestApiV1CollectorCreatenewinstanceResponse": "ge:PostHistorianRestApiV1CollectorCreatenewinstanceResponse",
+    "PutHistorianRestApiV1CollectorDeleteinstanceRequest": "ge:PutHistorianRestApiV1CollectorDeleteinstanceRequest",
+    "deleteTags": {
+      "@id": "ge:deleteTags",
+      "@type": "xsd:boolean"
+    },
+    "PutHistorianRestApiV1CollectorDeleteinstanceResponse": "ge:PutHistorianRestApiV1CollectorDeleteinstanceResponse",
+    "PutHistorianRestApiV1CollectorEditinstanceRequest": "ge:PutHistorianRestApiV1CollectorEditinstanceRequest",
+    "messageCompression": {
+      "@id": "ge:messageCompression",
+      "@type": "xsd:integer"
+    },
+    "debugMode": {
+      "@id": "ge:debugMode",
+      "@type": "xsd:integer"
+    },
+    "CloudDestinationAddress": {
+      "@id": "ge:CloudDestinationAddress",
+      "@type": "xsd:string"
+    },
+    "IdentityIssuer": {
+      "@id": "ge:IdentityIssuer",
+      "@type": "xsd:string"
+    },
+    "ClientID": {
+      "@id": "ge:ClientID",
+      "@type": "xsd:string"
+    },
+    "ClientSecret": {
+      "@id": "ge:ClientSecret",
+      "@type": "xsd:string"
+    },
+    "ZoneID": {
+      "@id": "ge:ZoneID",
+      "@type": "xsd:string"
+    },
+    "Proxy": {
+      "@id": "ge:Proxy",
+      "@type": "xsd:string"
+    },
+    "ProxyUserName": {
+      "@id": "ge:ProxyUserName",
+      "@type": "xsd:string"
+    },
+    "ProxyPassword": {
+      "@id": "ge:ProxyPassword",
+      "@type": "xsd:string"
+    },
+    "DatapointAttribute1": {
+      "@id": "ge:DatapointAttribute1",
+      "@type": "xsd:string"
+    },
+    "DatapointAttribute2": {
+      "@id": "ge:DatapointAttribute2",
+      "@type": "xsd:string"
+    },
+    "DatapointAttribute3": {
+      "@id": "ge:DatapointAttribute3",
+      "@type": "xsd:string"
+    },
+    "DatapointAttribute4": {
+      "@id": "ge:DatapointAttribute4",
+      "@type": "xsd:string"
+    },
+    "PutHistorianRestApiV1CollectorEditinstanceResponse": "ge:PutHistorianRestApiV1CollectorEditinstanceResponse",
+    "PutHistorianRestApiV1CollectorMessagecompressionRequest": "ge:PutHistorianRestApiV1CollectorMessagecompressionRequest",
+    "PutHistorianRestApiV1CollectorMessagecompressionResponse": "ge:PutHistorianRestApiV1CollectorMessagecompressionResponse",
+    "GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio": "ge:GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio",
+    "PostHistorianRestApiV1TagsAddcommentRequest": "ge:PostHistorianRestApiV1TagsAddcommentRequest",
+    "tagName": {
+      "@id": "ge:tagName",
+      "@type": "xsd:string"
+    },
+    "comment": {
+      "@id": "ge:comment",
+      "@type": "xsd:string"
+    },
+    "timeStamp": {
+      "@id": "ge:timeStamp",
+      "@type": "xsd:string"
+    },
+    "PostHistorianRestApiV1TagsAddcommentResponse": "ge:PostHistorianRestApiV1TagsAddcommentResponse",
+    "PutOauthTokenResponse": "ge:PutOauthTokenResponse",
+    "GetStorageDatastoresResponse": "ge:GetStorageDatastoresResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "GE Vernova API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects GE Vernova's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/_ae-authored/ge-vernova-openapi-generated.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/_ae-authored/ge-vernova-openapi-generated.yml"
+  ]
+}

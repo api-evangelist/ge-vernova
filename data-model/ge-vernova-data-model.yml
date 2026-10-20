@@ -1,0 +1,62 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-data-model.py
+source:
+- openapi/_ae-authored/ge-vernova-openapi-generated.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 25
+  entities_in_spec: 25
+  relationships: 0
+entities:
+- name: DeleteDatastoreResponse
+  fields: 2
+- name: DeleteResponse
+  fields: 2
+- name: GetDatastoresResponse
+  fields: 2
+- name: GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio
+  fields: 3
+- name: GetStorageDatastoresResponse
+  fields: 2
+- name: PostDatastoretostorageRequest
+  fields: 4
+- name: PostDatastoretostorageResponse
+  fields: 2
+- name: PostHistorianRestApiV1AlarmsRestoreRequest
+  fields: 1
+- name: PostHistorianRestApiV1AlarmsRestoreResponse
+  fields: 2
+- name: PostHistorianRestApiV1CollectorCreatenewinstanceRequest
+  fields: 18
+- name: PostHistorianRestApiV1CollectorCreatenewinstanceResponse
+  fields: 2
+- name: PostHistorianRestApiV1TagsAddcommentRequest
+  fields: 3
+- name: PostHistorianRestApiV1TagsAddcommentResponse
+  fields: 3
+- name: PostResponse
+  fields: 2
+- name: PutHistorianRestApiV1AlarmsCreateResponse
+  fields: 3
+- name: PutHistorianRestApiV1CollectorAzureloglevelRequest
+  fields: 2
+- name: PutHistorianRestApiV1CollectorAzureloglevelResponse
+  fields: 2
+- name: PutHistorianRestApiV1CollectorDeleteinstanceRequest
+  fields: 2
+- name: PutHistorianRestApiV1CollectorDeleteinstanceResponse
+  fields: 2
+- name: PutHistorianRestApiV1CollectorEditinstanceRequest
+  fields: 19
+- name: PutHistorianRestApiV1CollectorEditinstanceResponse
+  fields: 2
+- name: PutHistorianRestApiV1CollectorMessagecompressionRequest
+  fields: 2
+- name: PutHistorianRestApiV1CollectorMessagecompressionResponse
+  fields: 2
+- name: PutOauthTokenResponse
+  fields: 2
+- name: PutResponse
+  fields: 2
+relationships: []
