@@ -11,6 +11,9 @@ checked:
 - https://monid.ai/tools/ge-vernova
 - https://n8n.io/integrations/ge-vernova/
 - https://zapier.com/apps/ge-vernova/integrations
+- https://landscape.lfenergy.org
+- https://lfenergy.org/projects/
+- https://raw.githubusercontent.com/lf-energy/lfenergy-landscape/1364cff4a6379fe8e87568eb5134fd6e8b4ded8e/landscape.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -33,4 +36,64 @@ edges:
   seller_name: GE Vernova
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: LF Energy (membership / landscape)
+  partner: lf-energy
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: LF Energy membership
+  evidence: https://github.com/lf-energy/lfenergy-landscape/blob/1364cff4a6379fe8e87568eb5134fd6e8b4ded8e/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: LF Energy Landscape (github.com/lf-energy/lfenergy-landscape landscape.yml @1364cff4a6)
+    spec_file: null
+    standard: LF Energy
+    role: lfess-member
+    registered_name: GE Vernova
+    registered_names:
+    - GE Vernova
+    website: https://www.gevernova.com/
+    matched_domain: gevernova.com
+    matched_by: domain
+    landscape_categories: []
+    landscape_entries: 0
+    signal_note: 'participation only: LF Energy membership / a landscape listing is standard-participant evidence,
+      not depth. Tier, entries and categories are CONTEXT, never counted'
+    detected_by: sweep-lf-energy-projects.py
+    detected: '2026-10-22'
+  detected_by: sweep-lf-energy-projects.py
+  first_seen: '2026-10-22'
+  partner_tier: 'LFESS Member: General'
+- partner_name: LF Energy projects (contributor)
+  partner: lf-energy
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: LF Energy project contribution
+  evidence: https://lfenergy.org/projects/seapath/
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: LF Energy project pages (lfenergy.org/projects/)
+    spec_file: null
+    standard: LF Energy
+    role: lfe-project-contributor
+    registered_name: GE Vernova
+    registered_names:
+    - GE Vernova
+    matched_domain: gevernova.com
+    matched_by: domain
+    lfe_projects:
+    - project: SEAPATH – LF Energy
+      stage: null
+      evidence_url: https://lfenergy.org/projects/seapath/
+      as:
+      - logo
+    signal_note: 'participation only: named by an LF Energy project page as initiator / TSC / contributing organisation;
+      projects and stages are CONTEXT, never counted'
+    detected_by: sweep-lf-energy-projects.py
+    detected: '2026-10-22'
+  detected_by: sweep-lf-energy-projects.py
+  first_seen: '2026-10-22'
 templates: []
