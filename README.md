@@ -1,4 +1,4 @@
-# GE Vernova (ge-vernova)
+# GE Vernova
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,62 +64,154 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-GE Vernova is accelerating the path to more reliable, affordable, and sustainable energy through its innovative portfolio of electrification, power, and decarbonization technologies. Spun off from General Electric, GE Vernova brings together the legacy GE Power, Renewable Energy, Digital, and Energy Financial Services businesses to help solve the world's energy transition challenges.
+GE Vernova is accelerating the path to more reliable, affordable, and sustainable energy through its innovative portfolio of electrification, power, and decarbonization technologies. Spun off from General Electric in April 2024, GE Vernova brings together the legacy GE Power, Renewable Energy, Digital, and Energy Financial Services businesses to help solve the world's energy transition challenges. Its software arm, GE Vernova Electrification Software (the former GE Digital), is where its API surface lives: Proficy industrial software — Historian, Plant Applications MES, Operations Hub, CSense, iFIX and CIMPLICITY — alongside Asset Performance Management (Meridium, SmartSignal) and GridOS for grid transmission, distribution and orchestration. Every one of those APIs is documented publicly and runs on infrastructure the customer operates, so each base URL is templated on the customer's own host rather than a vendor-hosted endpoint.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/ge-vernova/refs/heads/main/apis.yml)
+**Areas:** Decarbonization · Electrification · Energy · Fortune 500 · Power · Renewable Energy · Sustainability · Industrial · Asset Performance Management · Manufacturing Execution Systems · Historian · Grid
 
-## Scope
+## GE Vernova on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for GE Vernova is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ge-vernova/](https://apis.io/providers/ge-vernova/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Decarbonization
-- Electrification
-- Energy
-- Fortune 500
-- Power
-- Renewable Energy
-- Sustainability
+- [Proficy Historian REST API](https://apis.io/apis/ge-vernova/ge-vernova-proficy-historian-rest-api/) — Manage Proficy Historian systems, collectors, collector instances, data stores, tags, the Historian model and alarms and events, and query time-series tag…
+- [Proficy Plant Applications REST API](https://apis.io/apis/ge-vernova/ge-vernova-proficy-plant-applications-rest-api/) — The MES surface of Proficy Plant Applications, delivered as 37 documented microservices on port 5059 of the Web Client host — activities, work orders,…
+- [Proficy Operations Hub REST APIs](https://apis.io/apis/ge-vernova/ge-vernova-proficy-operations-hub-rest-api/) — Two REST surfaces on an Operations Hub installation. The integration APIs let a third-party server authenticate, pull rows from the M2M_data entity, and…
+- [APM Data Extraction OData API](https://apis.io/apis/ge-vernova/ge-vernova-apm-data-extraction-odata-api/) — An OData service hosted as part of the APM Web API, exposing APM families — assets, alerts, cases, work orders — as entity collections for extraction into…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-No public APIs have been documented for GE Vernova at this time. The company is a heavy industrial energy provider whose digital products are typically sold under enterprise contracts. Contributions welcome.
+Event-driven and webhook contracts.
 
-## Common Properties
+- [Ge Vernova Event Surface](https://apis.io/asyncapis/ge-vernova/ge-vernova-event-surface/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [ge-vernova-proficy](https://apis.io/servers/ge-vernova/ge-vernova-proficy/)
+
+#### JSON Schema (6)
+
+The data models the API reads and writes.
+
+- [GetHistorianRestApiV1CollectorVersionRsserver201202Simulatio](https://apis.io/schemas/ge-vernova/ge-vernova-get-historian-rest-api-v1-collector-version-rsserver201202-simulatio/)
+- [PostHistorianRestApiV1CollectorCreatenewinstanceRequest](https://apis.io/schemas/ge-vernova/ge-vernova-post-historian-rest-api-v1-collector-createnewinstance-request/)
+- [PostHistorianRestApiV1TagsAddcommentRequest](https://apis.io/schemas/ge-vernova/ge-vernova-post-historian-rest-api-v1-tags-addcomment-request/)
+- [PostHistorianRestApiV1TagsAddcommentResponse](https://apis.io/schemas/ge-vernova/ge-vernova-post-historian-rest-api-v1-tags-addcomment-response/)
+- [PutHistorianRestApiV1AlarmsCreateResponse](https://apis.io/schemas/ge-vernova/ge-vernova-put-historian-rest-api-v1-alarms-create-response/)
+- [PutHistorianRestApiV1CollectorEditinstanceRequest](https://apis.io/schemas/ge-vernova/ge-vernova-put-historian-rest-api-v1-collector-editinstance-request/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Ge Vernova Context](https://apis.io/jsonld/ge-vernova/ge-vernova-context/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [GE Vernova API Rules](https://apis.io/rules/ge-vernova/ge-vernova-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ge Vernova Authentication](https://apis.io/security/ge-vernova/ge-vernova-authentication/)
+- [Ge Vernova Domain Security](https://apis.io/security/ge-vernova/ge-vernova-domain-security/)
+- [Ge Vernova Trust Center](https://apis.io/security/ge-vernova/ge-vernova-trust-center/)
+- [Ge Vernova Vulnerability Disclosure](https://apis.io/security/ge-vernova/ge-vernova-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Ge Vernova Scopes](https://apis.io/scopes/ge-vernova/ge-vernova-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ge Vernova Plans Pricing](https://apis.io/plans/ge-vernova/ge-vernova-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ge Vernova Rate Limits](https://apis.io/rate-limits/ge-vernova/ge-vernova-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.gevernova.com/)
-- [About Us](https://www.gevernova.com/company/about)
-- [Leadership](https://www.gevernova.com/company/leadership)
-- [Investors](https://www.gevernova.com/investors)
-- [Sustainability](https://www.gevernova.com/sustainability)
-- [News](https://www.gevernova.com/news)
-- [Press Releases / Media Hub](https://www.gevernova.com/news/media-hub)
-- [Newsletter](https://www.gevernova.com/news)
-- [Careers](https://careers.gevernova.com)
-- [Contact](https://www.gevernova.com/contact)
-- [Terms of Service](https://www.gevernova.com/terms)
-- [Privacy Policy](https://www.gevernova.com/privacy)
-- [Accessibility](https://www.gevernova.com/accessibility)
+- [Documentation](https://www.gevernova.com/software/product-documentation)
+- [Getting started](https://www.gevernova.com/software/documentation/quickstart/default/index.html)
+- [API reference](https://www.gevernova.com/software/documentation/historian/version2025/c_historian_apis_overview.html)
+- [Support](https://www.gevernova.com/software/technical-support)
+- [Blog](https://www.gevernova.com/software/blog)
 - [Security](https://www.gevernova.com/security)
+- [Compliance](https://www.gevernova.com/software/cybersecurity)
+- [Trust centre](https://trust.gevernova.com/)
+- [Terms of service](https://www.gevernova.com/terms)
+- [Privacy policy](https://www.gevernova.com/privacy)
 
-## Social
+## API Evangelist rating
 
-- [LinkedIn](https://www.linkedin.com/company/gevernova)
-- [X](https://x.com/gevernova)
-- [Instagram](https://www.instagram.com/gevernova)
-- [YouTube](https://www.youtube.com/@gevernova)
-- [Facebook](https://www.facebook.com/gevernova)
+**Kin Score 45.6** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 33.0 |
+| Contract governance | 35.6 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 54.8 |
+| Access clarity | 28.9 |
 
-**FN:** Kin Lane
+**Agent readiness 41.5** — agent-ready (gated down from agent-native)
 
-**Email:** kin@apievangelist.com
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 43.4** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ge-vernova/](https://apis.io/providers/ge-vernova/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GE Vernova: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ge-vernova/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
